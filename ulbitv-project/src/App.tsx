@@ -2,6 +2,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import {lazy, Suspense} from 'react';
 import './styles/index.scss'; 
 import { useTheme } from "./theme/useTheme";
+import { classNames } from "./helpers";
 
 function lazyLoadingTimeout<T>(dynamicImport: Promise<T>, countMSec: number): Promise<T>{
     return new Promise((resolve)=>{
@@ -18,7 +19,7 @@ export default function App() {
     const {theme, toggleTheme} = useTheme();
 
     return (
-        <div className={`app ${theme}`}>
+        <div className={classNames('app',{} ,[theme] )}>
             <button onClick={toggleTheme}>TOGGLE</button>
             <ul>
                 <li><Link to="/">Homepage</Link></li>

@@ -8,6 +8,7 @@
 .pnp.js
 /.idea
 /.idea/workspace.xml
+/.vscode
 
 # testing
 /coverage
@@ -21,6 +22,8 @@
 .env.development.local
 .env.test.local
 .env.production.local
+Thumbs.db
+.Trash
 
 npm-debug.log*
 yarn-debug.log*
