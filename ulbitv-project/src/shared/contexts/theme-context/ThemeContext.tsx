@@ -5,6 +5,20 @@ export enum Theme {
     DARK = 'dark'
 }
 
+
+
+/*
+typeof SortOrder[typeof keyof SortOrder]
+
+const Sort = {
+    asc: 'asc',
+    desc: 'desc'
+} as const;
+
+type SortOrder = typeof Sort[typeof keyof Sort]
+*/
+
+
 export interface ThemeContextProps {
     theme?: Theme;
     // setTheme?: (theme: Theme) => void

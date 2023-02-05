@@ -1,17 +1,11 @@
 import { Link, Route, Routes } from "react-router-dom";
-import {lazy, Suspense} from 'react';
+import { Suspense} from 'react';
 import './styles/index.scss'; 
-import { useTheme } from "./theme/useTheme";
-import { classNames } from "./helpers";
+import { useTheme } from "app/providers/ThemeProvider";
+import { classNames } from "../helpers";
+import { MainPage } from "pages/MainPage";
+import { AboutPage } from "pages/AboutPage";
 
-function lazyLoadingTimeout<T>(dynamicImport: Promise<T>, countMSec: number): Promise<T>{
-    return new Promise((resolve)=>{
-        setTimeout(()=>{resolve(dynamicImport)}, countMSec);
-    })
-};
-
-const AboutPage = lazy(() => lazyLoadingTimeout(import('./pages/AboutPage'), 1000));
-const MainPage = lazy(() => lazyLoadingTimeout(import('./pages/MainPage'), 1000));
 
 
 export default function App() {

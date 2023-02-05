@@ -1,5 +1,5 @@
-import {FC, useMemo, useState} from 'react';
-import {LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext} from './ThemeContext';
+import { FC, useMemo, useState } from 'react';
+import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from './ThemeContext';
 
 // const isTheme = (value: any): value is Theme => typeof value === 'string' &&
 // (Theme.DARK === value || Theme.LIGHT === value)
