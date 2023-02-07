@@ -1,10 +1,8 @@
-import { Link, Route, Routes } from "react-router-dom";
-import { Suspense} from 'react';
+import { Link } from "react-router-dom";
 import './styles/index.scss'; 
-import { useTheme } from "app/providers/ThemeProvider";
 import { classNames } from "../helpers";
-import { MainPage } from "pages/MainPage";
-import { AboutPage } from "pages/AboutPage";
+import AppRouter from "app/providers/router";
+import { useTheme } from "shared/contexts/theme-context";
 
 
 
@@ -19,13 +17,7 @@ export default function App() {
                 <li><Link to="/">Homepage</Link></li>
                 <li><Link to="/about">AboutPage</Link></li>
             </ul>
-            <Suspense fallback={<>Loading</>}>
-            <Routes>
-                
-                <Route path="/" element={<MainPage/>}/>
-                <Route path="/about" element={<AboutPage/>}/>
-            </Routes>
-            </Suspense>
+            <AppRouter/>
         </div>
     )
 }
