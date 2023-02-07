@@ -1,4 +1,5 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 import { ProgressPlugin } from "webpack";
 import { BuildPaths } from "./types/config";
 
@@ -8,6 +9,10 @@ import { BuildPaths } from "./types/config";
         new HtmlWebpackPlugin({
             template: paths.html,
         }),
-        new ProgressPlugin()
+        new ProgressPlugin(),
+        new MiniCssExtractPlugin({
+            filename: "css/[name].[contenthash:8].css",
+            chunkFilename: "css/[name].[contenthash:8].css"
+        })
     ]
  }
