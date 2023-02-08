@@ -1,9 +1,8 @@
-import { Link } from "react-router-dom";
 import './styles/index.scss'; 
-import { classNames } from "../helpers";
 import AppRouter from "app/providers/router";
 import { useTheme } from "shared/contexts/theme-context";
-
+import { Navbar } from "widgets";
+import { classNames } from 'shared/libs';
 
 
 export default function App() {
@@ -12,11 +11,8 @@ export default function App() {
 
     return (
         <div className={classNames('app',{} ,[theme] )}>
+            <Navbar/>
             <button onClick={toggleTheme}>TOGGLE</button>
-            <ul>
-                <li><Link to="/">Homepage</Link></li>
-                <li><Link to="/about">AboutPage</Link></li>
-            </ul>
             <AppRouter/>
         </div>
     )

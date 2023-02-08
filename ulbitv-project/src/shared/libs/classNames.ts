@@ -1,5 +1,5 @@
 type Mod = Record<string, boolean | string>;
-export function classNames(classes: string, mods:Mod, additionalClassnames: string[]):string {
+export function classNames(classes: string, mods:Mod = {}, additionalClassnames: string[] = []):string {
 
     const computedClassNames = [
         classes,
