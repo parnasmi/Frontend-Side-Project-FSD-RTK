@@ -1,5 +1,6 @@
 export { useTheme } from './useTheme';
-import ThemeProvider from './ThemeProvider'
+import ThemeProvider from './ThemeProvider';
+import { Theme } from './ThemeContext';
 
 
-export { ThemeProvider };
+export { ThemeProvider,Theme };
