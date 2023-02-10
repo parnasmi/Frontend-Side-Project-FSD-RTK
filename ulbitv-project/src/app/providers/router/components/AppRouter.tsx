@@ -6,8 +6,17 @@ export default function AppRouter() {
   return (
     <Suspense fallback={<>Loading</>}>
         <Routes>
-          {Object.values(routes).map(routeProps => {
-            return <Route  key={routeProps.path} {...routeProps}/>
+          {Object.values(routes).map((routeProps) => {
+            return <Route  key={routeProps.path} 
+            {...routeProps}
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <div className="page-wrapper">
+                    {routeProps.element}
+                </div>
+              </Suspense>
+            }
+            />
           })}
         </Routes>
     </Suspense>
