@@ -13,7 +13,7 @@ export const ThemeSwitcher = ({className}: ThemeSwitcherProps) => {
     const { theme, toggleTheme } = useTheme();
 
 
-    return (
+    return ( 
         <Button
             theme={ThemeButton.CLEAR}
             className={classNames(cls.ThemeSwitcher, {}, [className])}
