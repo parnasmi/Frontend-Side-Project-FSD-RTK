@@ -21,8 +21,7 @@ i18n
         saveMissing: true,
         react: {
             useSuspense: true,
-        }
+        },
     });
-
 
 export default i18n;

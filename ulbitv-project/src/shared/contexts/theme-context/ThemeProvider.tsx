@@ -1,4 +1,4 @@
-import { FC, useMemo, useState } from 'react';
+import React, { FC, useMemo, useState } from 'react';
 import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from './ThemeContext';
 
 // const isTheme = (value: any): value is Theme => typeof value === 'string' &&
@@ -9,10 +9,10 @@ import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from './ThemeContext';
 //     return isTheme(defaultTheme) ? defaultTheme : Theme.LIGHT;
 // }
 
-//another way of type checking with type guards⬆️
-
-const getTheme = (theme: Theme | string | null): Theme | null => {
-    return Object.values(Theme as any).some((item: Theme) => theme === item) ? (theme as Theme) : null;
+// another way of type checking with type guards⬆️
+function getTheme(theme: Theme | string | null): Theme | null {
+    return (Object.values(Theme as any)
+        .some((item: Theme) => theme === item) ? (theme as Theme) : null);
 }
 
 interface ThemeProviderProps {
@@ -21,13 +21,13 @@ interface ThemeProviderProps {
 
 const defaultTheme: Theme = getTheme(localStorage.getItem(LOCAL_STORAGE_THEME_KEY)) || Theme.LIGHT;
 
-const ThemeProvider: FC<ThemeProviderProps> = ({children}) => {
+const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
     const [theme, setTheme] = useState<Theme>(defaultTheme);
 
     const defaultProps = useMemo(() => ({
-        theme: theme,
-        setTheme: setTheme,
-    }), [theme])
+        theme,
+        setTheme,
+    }), [theme]);
 
     return (
         <ThemeContext.Provider value={defaultProps}>

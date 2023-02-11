@@ -1,2 +1,2 @@
-export { lazyLoadingTimeout } from './lazyLoadingTimeout'
-export {classNames} from './classNames'
+export { lazyLoadingTimeout } from './lazyLoadingTimeout';
+export { classNames } from './classNames';
