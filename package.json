@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "eslint-plugin-i18next": "^6.0.0-6"
+  }
+}

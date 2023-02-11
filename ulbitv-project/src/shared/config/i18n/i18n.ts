@@ -25,3 +25,5 @@ i18n
     });
 
 export default i18n;
+
+// todo setup i18-ally and babel-i18n-extract
