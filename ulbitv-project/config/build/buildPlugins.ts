@@ -1,11 +1,13 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-import { ProgressPlugin,DefinePlugin } from "webpack";
+import { ProgressPlugin,DefinePlugin, HotModuleReplacementPlugin } from "webpack";
 import { BuildOptions } from "./types/config";
+
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
  export function buildPlugins({paths,isDev }:BuildOptions) {
 
-    return [
+    const plugins = [
         new HtmlWebpackPlugin({
             template: paths.html,
         }),
@@ -18,4 +20,10 @@ import { BuildOptions } from "./types/config";
             __IS_DEV__: JSON.stringify(isDev),
         })
     ]
+
+    if(isDev) {
+        plugins.push( new ReactRefreshWebpackPlugin(),new HotModuleReplacementPlugin())
+    }
+
+    return plugins;
  }

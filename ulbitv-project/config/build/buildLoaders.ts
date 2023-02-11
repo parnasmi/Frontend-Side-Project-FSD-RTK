@@ -1,6 +1,8 @@
 import webpack from 'webpack'
-const MiniCssExtractPlugin = require("mini-css-extract-plugin"); 
 import { BuildOptions } from './types/config'
+
+const MiniCssExtractPlugin = require("mini-css-extract-plugin"); 
+const ReactRefreshTypeScript = require('react-refresh-typescript');
 
 export function buildLoaders({isDev}:BuildOptions):webpack.RuleSetRule[]  {
 
@@ -16,6 +18,17 @@ export function buildLoaders({isDev}:BuildOptions):webpack.RuleSetRule[]  {
           loader: 'file-loader',
         },
       ],
+    }
+
+    const babelLoader = {
+      test: /\.(js|jsx|tsx)$/,
+      exclude: /node_modules/,
+      use: {
+        loader: "babel-loader",
+        options: {
+          presets: ['@babel/preset-env']
+        }
+      }
     }
 
     const scssLoaders =  {
@@ -40,13 +53,24 @@ export function buildLoaders({isDev}:BuildOptions):webpack.RuleSetRule[]  {
 
     const typescriptLoaders = {
         test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: require.resolve('ts-loader'),
+            options: {
+              getCustomTransformers: () => ({
+                before: [isDev && ReactRefreshTypeScript()].filter(Boolean),
+              }),
+              transpileOnly: isDev,
+            },
+          },
+        ],
     }
 
     return [
         fileLoader,
         svgLoader,
+        babelLoader,
         typescriptLoaders,
         scssLoaders
     ]
