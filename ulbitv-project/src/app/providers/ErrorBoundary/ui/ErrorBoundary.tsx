@@ -9,6 +9,8 @@ interface ErrorBoundaryState {
     hasError: boolean;
 }
 
+// better way of using Errorboundary - https://www.youtube.com/watch?v=gyqAW0--0Tc&t=2s
+
 class ErrorBoundary
     extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
     constructor(props: ErrorBoundaryProps) {

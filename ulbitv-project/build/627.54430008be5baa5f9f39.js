@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_1_mobule_webpack=self.webpackChunk_1_mobule_webpack||[]).push([[627],{627:(e,u,a)=>{a.r(u),a.d(u,{default:()=>b});var c=a(893),r=a(887);function b(){var e=(0,r.$G)().t;return(0,c.jsx)("div",{children:e("Главная страница")})}}}]);
