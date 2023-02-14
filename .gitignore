@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /ulbitv-project/node_modules
+/ulbitv-project/build
 /course_description
 /.pnp
 .pnp.js
