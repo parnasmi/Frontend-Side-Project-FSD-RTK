@@ -30,11 +30,18 @@ export default {
     moduleDirectories: [
         'node_modules',
     ],
+    modulePaths: [
+        '<rootDir>src',
+    ],
     testMatch: [
         // Обнаружил разницу между МАК ОС и ВИНДОУС!!!
-        '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
+        '<rootDir>/src/**/*(*.)@(spec|test).[tj]s?(x)',
     ],
+    moduleNameMapper: {
+        '\\.(css|scss)$': 'identity-obj-proxy',
+    },
     rootDir: '../../',
+    setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
 
