@@ -10,7 +10,5 @@ describe('Button component', () => {
     test('test Button has clear class', () => {
         render(<Button theme="clear">Test</Button>);
         expect(screen.getByText('Test')).toBeInTheDocument();
-
-        screen.debug();
     });
 });
