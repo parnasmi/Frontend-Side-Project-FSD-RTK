@@ -12,8 +12,9 @@ export function buildResolvers(options:BuildOptions):webpack.ResolveOptions {
 }
 
 /*
+
 Что бы сделать alias через '@', что бы импортить как
 import {classNames} from "@/shared/lib/classNames/classNames";
 Нужно в buildResolvers добавить alias: {'@': options.paths.src},
- а в tsconfig поменять path таким образом: "paths": {"@/*": ["./src/*"]},
+а в tsconfig поменять path таким образом: "paths": {"@/*": ["./src/*"]},
 */
