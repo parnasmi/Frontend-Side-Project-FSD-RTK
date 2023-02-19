@@ -3,8 +3,8 @@
 # dependencies
 /node_modules
 /ulbitv-project
-/next-react-project/node_modules
-/next-react-project/build
+/next_react_project/node_modules
+/next_react_project/build
 /descr
 /.pnp
 .pnp.js
