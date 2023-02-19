@@ -15,17 +15,27 @@ export default ({ config }: {config: WebpackConfiguration}) => {
     config.resolve?.modules?.push(paths.src);
     config.resolve?.extensions?.push('.ts', '.tsx');
 
-    // todo fix ts types
     // eslint-disable-next-line no-param-reassign
-    config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
-        if (/svg/.test(rule.test as string)) {
-            return { ...rule, exclude: /\.svg$/i };
-        }
+    // config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
+    //     if (/svg/.test(rule.test as string)) {
+    //         return { ...rule, exclude: /\.svg$/i };
+    //     }
 
-        return rule;
-    });
+    //     return rule;
+    // });
+    if (config.module?.rules) {
+        let { rules } = config.module;
 
-    config.module?.rules.push({
+        rules = rules.map((rule: RuleSetRule | '...') => {
+            if (rule !== '...' && /svg/.test(rule.test as string)) {
+                return { ...rule, exclude: /\.svg$/i };
+            }
+
+            return rule;
+        });
+    }
+
+    config?.module?.rules?.push({
         test: /\.svg$/,
         use: ['@svgr/webpack'],
     });

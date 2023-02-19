@@ -26,3 +26,5 @@ const diffDir = joinPath(lokiDir, 'difference');
         diffDir: relative(lokiDir, diffDir),
     }));
 }());
+
+// source - https://github.com/oblador/loki/issues/76

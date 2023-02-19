@@ -20,6 +20,7 @@
       // c флагом результат [object Object]
       // console.log(Moment);
       "esModuleInterop": true,
+      "strictBindCallApply": true,  
       // Если какая-либо библиотека не имеет default export,
       // лоадеры вроде ts-loader или babel-loader автоматически создают их
       // вместо такого импорта
