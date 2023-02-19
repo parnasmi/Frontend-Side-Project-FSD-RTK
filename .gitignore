@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /ulbitv-project
+storybook-static
 /next_react_project/node_modules
 /next_react_project/build
 /descr
