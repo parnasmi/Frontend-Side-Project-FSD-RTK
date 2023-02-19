@@ -16,24 +16,24 @@ export default ({ config }: {config: WebpackConfiguration}) => {
     config.resolve?.extensions?.push('.ts', '.tsx');
 
     // eslint-disable-next-line no-param-reassign
-    // config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
-    //     if (/svg/.test(rule.test as string)) {
-    //         return { ...rule, exclude: /\.svg$/i };
-    //     }
+    config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
+        if (/svg/.test(rule.test as string)) {
+            return { ...rule, exclude: /\.svg$/i };
+        }
 
-    //     return rule;
-    // });
-    if (config.module?.rules) {
-        let { rules } = config.module;
+        return rule;
+    });
+    // if (config.module?.rules) {
+    //     let { rules } = config.module;
 
-        rules = rules.map((rule: RuleSetRule | '...') => {
-            if (rule !== '...' && /svg/.test(rule.test as string)) {
-                return { ...rule, exclude: /\.svg$/i };
-            }
+    //     rules = rules.map((rule: RuleSetRule | '...') => {
+    //         if (rule !== '...' && /svg/.test(rule.test as string)) {
+    //             return { ...rule, exclude: /\.svg$/i };
+    //         }
 
-            return rule;
-        });
-    }
+    //         return rule;
+    //     });
+    // }
 
     config?.module?.rules?.push({
         test: /\.svg$/,
