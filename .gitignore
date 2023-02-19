@@ -2,9 +2,10 @@
 
 # dependencies
 /node_modules
-/ulbitv-project/node_modules
-/ulbitv-project/build
-/course_description
+/ulbitv-project
+/next-react-project/node_modules
+/next-react-project/build
+/descr
 /.pnp
 .pnp.js
 /.idea
