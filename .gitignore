@@ -6,6 +6,8 @@
 storybook-static
 /next_react_project/node_modules
 /next_react_project/build
+/next_react_project/.loki/report.html
+/next_react_project/.loki/report.json
 /descr
 /.pnp
 .pnp.js
