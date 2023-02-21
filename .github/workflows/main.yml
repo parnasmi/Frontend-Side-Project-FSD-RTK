@@ -1,9 +1,9 @@
 name: linting, testing, building
 on:
   push:
-    branches: [main, 3_module/storybook-rtl-errors]
+    branches: [main, 4_module/data_modal_redux_auth_husky]
   pull_request:
-    branches: [main, 3_module/storybook-rtl-errors]
+    branches: [main, 4_module/data_modal_redux_auth_husky]
 defaults:
   run:
     working-directory: ./next_react_project
