@@ -22,6 +22,9 @@ interface ThemeProviderProps {
 
 const defaultTheme: Theme = getTheme(localStorage.getItem(LOCAL_STORAGE_THEME_KEY)) || Theme.LIGHT;
 
+// todo remove
+console.log('hello world');
+
 const ThemeProvider: FC<ThemeProviderProps> = ({ children, initialTheme }) => {
     const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
 
