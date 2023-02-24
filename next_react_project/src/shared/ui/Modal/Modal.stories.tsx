@@ -19,9 +19,9 @@ Primary.args = {
     children: 'Hello',
 };
 
-export const Dark = Template.bind({});
-Dark.args = {
-    isOpen: true,
-    children: 'Hello',
-};
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+// export const Dark = Template.bind({});
+// Dark.args = {
+//     isOpen: true,
+//     children: 'Hello',
+// };
+// Dark.decorators = [ThemeDecorator(Theme.DARK)];
