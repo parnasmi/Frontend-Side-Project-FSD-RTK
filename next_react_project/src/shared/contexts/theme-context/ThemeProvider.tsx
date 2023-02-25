@@ -1,4 +1,6 @@
-import React, { FC, useMemo, useState } from 'react';
+import React, {
+    FC, useEffect, useMemo, useState,
+} from 'react';
 import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from './ThemeContext';
 
 // const isTheme = (value: any): value is Theme => typeof value === 'string' &&
@@ -29,6 +31,11 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, initialTheme }) => {
         theme,
         setTheme,
     }), [theme]);
+
+    useEffect(() => {
+        document.body.className = theme;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (
         <ThemeContext.Provider value={defaultProps}>
