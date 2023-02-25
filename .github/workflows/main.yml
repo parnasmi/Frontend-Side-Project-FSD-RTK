@@ -1,9 +1,10 @@
 name: linting, testing, building
 on:
   push:
-    branches: [main, 4_module/data_modal_redux_auth_husky]
+    branches: [main]
+    # branches: [main, 4_module/data_modal_redux_auth_husky]
   pull_request:
-    branches: [main, 4_module/data_modal_redux_auth_husky]
+    branches: [main]
 defaults:
   run:
     working-directory: ./next_react_project
