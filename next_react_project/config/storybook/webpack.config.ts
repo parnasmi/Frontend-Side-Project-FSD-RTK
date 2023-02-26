@@ -1,6 +1,6 @@
 import { WebpackConfiguration } from 'webpack-dev-server';
 import path from 'path';
-import { RuleSetRule } from 'webpack';
+import { DefinePlugin, RuleSetRule } from 'webpack';
 import { BuildPaths } from '../build';
 import { buildCssLoaders } from '../build/loaders/buildCssLoaders';
 
@@ -12,7 +12,8 @@ export default ({ config }: {config: WebpackConfiguration}) => {
         src: path.resolve(__dirname, '..', '..', 'src'),
     };
 
-    config.resolve?.modules?.push(paths.src);
+    // config.resolve?.modules?.push(paths.src);
+    config.resolve!.modules = [paths.src, 'node_modules'];
     config.resolve?.extensions?.push('.ts', '.tsx');
 
     // eslint-disable-next-line no-param-reassign
@@ -41,6 +42,10 @@ export default ({ config }: {config: WebpackConfiguration}) => {
     });
 
     config.module?.rules?.push(buildCssLoaders(true));
+
+    config.plugins?.push(new DefinePlugin({
+        __IS_DEV__: true,
+    }));
 
     return config;
 };
