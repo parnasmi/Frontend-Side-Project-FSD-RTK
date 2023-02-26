@@ -33,7 +33,7 @@ export default {
         'node',
     ],
     moduleDirectories: [
-        'node_modules',
+        'node_modules', 'src',
     ],
     modulePaths: [
         '<rootDir>src',
@@ -42,9 +42,11 @@ export default {
         // Обнаружил разницу между МАК ОС и ВИНДОУС!!!
         '<rootDir>/src/**/*(*.)@(spec|test).[tj]s?(x)',
     ],
+    // more about absoulte paths - https://stackoverflow.com/questions/50171412/jest-typescript-absolute-paths-baseurl-gives-error-cannot-find-module
     moduleNameMapper: {
         '\\.(css|scss)$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+        'entities/(.*)': '<rootDir>/src/entities/$1',
     },
     rootDir: '../../',
     setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
