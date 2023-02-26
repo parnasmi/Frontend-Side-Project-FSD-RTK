@@ -11,5 +11,10 @@
   "Главная": "Main",
   "О сайте": "About us",
   "Переключить": "Переключить",
-  "Короткий язык": "En"
+  "Короткий язык": "En",
+  "Войти": "Login",
+  "Выйти": "Logout",
+  "Вы ввели неверный логин или пароль": "You entered wrong password",
+  "increment": "increment",
+  "decrement": "decrement"
 }

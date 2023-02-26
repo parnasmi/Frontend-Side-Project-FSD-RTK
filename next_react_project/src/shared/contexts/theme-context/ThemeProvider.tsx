@@ -1,4 +1,6 @@
-import React, { FC, useMemo, useState } from 'react';
+import React, {
+    FC, useEffect, useMemo, useState,
+} from 'react';
 import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from './ThemeContext';
 
 // const isTheme = (value: any): value is Theme => typeof value === 'string' &&
@@ -16,18 +18,24 @@ function getTheme(theme: Theme | string | null): Theme | null {
 }
 
 interface ThemeProviderProps {
-    children: React.ReactNode
-    }
+    children: React.ReactNode;
+    initialTheme?: Theme;
+}
 
 const defaultTheme: Theme = getTheme(localStorage.getItem(LOCAL_STORAGE_THEME_KEY)) || Theme.LIGHT;
 
-const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
-    const [theme, setTheme] = useState<Theme>(defaultTheme);
+const ThemeProvider: FC<ThemeProviderProps> = ({ children, initialTheme }) => {
+    const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
 
     const defaultProps = useMemo(() => ({
         theme,
         setTheme,
     }), [theme]);
+
+    useEffect(() => {
+        document.body.className = theme;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (
         <ThemeContext.Provider value={defaultProps}>

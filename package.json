@@ -1,0 +1,28 @@
+{
+  "name": "root-npm",
+  "version": "1.0.0",
+  "description": "Frontend stuffs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:ts": "npm run lint:ts --prefix next_react_project",
+    "lint:scss": "npm run lint:scss --prefix next_react_project",
+    "test:ui": "npm run test:ui --prefix next_react_project",
+    "test:unit": "npm run test:unit --prefix next_react_project",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parnasmi/ulbitv-course.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/parnasmi/ulbitv-course/issues"
+  },
+  "homepage": "https://github.com/parnasmi/ulbitv-course#readme",
+  "devDependencies": {
+    "husky": "^8.0.0"
+  }
+}
