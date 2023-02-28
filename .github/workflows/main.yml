@@ -1,8 +1,8 @@
 name: linting, testing, building
 on:
   push:
-    branches: [main,4_module/data_modal_redux_auth_husky]
-    # branches: [main, 4_module/data_modal_redux_auth_husky]
+    branches: [main,5_module/async_reducers_tests]
+    # branches: [main, 5_module/async_reducers_tests]
   pull_request:
     branches: [main]
 defaults:
