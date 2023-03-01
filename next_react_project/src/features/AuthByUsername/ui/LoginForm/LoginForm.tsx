@@ -40,7 +40,6 @@ const LoginForm = ({ className, onClose }: LoginFormProps) => {
     }, [dispatch]);
 
     const onLoginClick = useCallback(() => {
-        // todo: fix type error
         dispatch(loginByUsername({ username, password, onClose }));
     }, [dispatch, password, username, onClose]);
 
