@@ -9,7 +9,6 @@ import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 interface LoginByUsernameProps {
     username: string;
     password: string;
-    onClose?: () => void;
 }
 
 export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, { rejectValue: string }>(
@@ -27,8 +26,6 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, { re
 
             localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
             thunkAPI.dispatch(userActions.setAuthData(response.data));
-
-            authData?.onClose();
 
             return response.data;
         } catch (e) {
