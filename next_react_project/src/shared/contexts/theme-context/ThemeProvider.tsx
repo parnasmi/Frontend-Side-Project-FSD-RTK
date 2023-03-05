@@ -11,10 +11,13 @@ import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from './ThemeContext';
 //     return isTheme(defaultTheme) ? defaultTheme : Theme.LIGHT;
 // }
 
+type ThemeType = Theme | null;
 // another way of type checking with type guards⬆️
-function getTheme(theme: Theme | string | null): Theme | null {
-    return (Object.values(Theme as any)
-        .some((item: Theme) => theme === item) ? (theme as Theme) : null);
+function getTheme(theme: ThemeType): Theme | null {
+    if (!theme) return null;
+
+    return (Object.values(theme)
+        .some((item) => theme === item) ? (theme as Theme) : null);
 }
 
 interface ThemeProviderProps {
@@ -22,7 +25,7 @@ interface ThemeProviderProps {
     initialTheme?: Theme;
 }
 
-const defaultTheme: Theme = getTheme(localStorage.getItem(LOCAL_STORAGE_THEME_KEY)) || Theme.LIGHT;
+const defaultTheme: Theme = getTheme(localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
 
 const ThemeProvider: FC<ThemeProviderProps> = ({ children, initialTheme }) => {
     const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
