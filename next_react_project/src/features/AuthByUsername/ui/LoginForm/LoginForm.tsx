@@ -6,7 +6,7 @@ import { loginByUsername } from 'features/AuthByUsername/model/services/loginByU
 import { loginActions, loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { classNames } from 'shared/libs';
 import { DynamicModuleLoader, ReducersList } from 'shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/libs/hooks/useAppDispatch';
@@ -53,14 +53,14 @@ const LoginForm = ({ className, onSuccess }: LoginFormProps) => {
             reducers={initialReducers}
         >
             <div className={classNames(cls.LoginForm, {}, [className])}>
-                <Text title={t('Форма авторизации')} />
-                {error && <Text text={t('Вы ввели неверный логин или пароль')} theme={TextTheme.ERROR} />}
+                <Text title={t('Форма авторизации') || ''} />
+                {error && <Text text={t('Вы ввели неверный логин или пароль') || ''} theme={TextTheme.ERROR} />}
                 {/* {error && <Text text={error} theme={TextTheme.ERROR} />} */}
                 <Input
                     autofocus
                     type="text"
                     className={cls.input}
-                    placeholder={t('Введите username')}
+                    placeholder={t('Введите username') || ''}
                     onChange={onChangeUsername}
                     value={username}
 
@@ -68,7 +68,7 @@ const LoginForm = ({ className, onSuccess }: LoginFormProps) => {
                 <Input
                     type="text"
                     className={cls.input}
-                    placeholder={t('Введите пароль')}
+                    placeholder={t('Введите пароль') || ''}
                     onChange={onChangePassword}
                     value={password}
                 />
