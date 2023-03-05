@@ -53,14 +53,14 @@ const LoginForm = ({ className, onSuccess }: LoginFormProps) => {
             reducers={initialReducers}
         >
             <div className={classNames(cls.LoginForm, {}, [className])}>
-                <Text title={t('Форма авторизации') || ''} />
-                {error && <Text text={t('Вы ввели неверный логин или пароль') || ''} theme={TextTheme.ERROR} />}
+                <Text title={t('Форма авторизации')} />
+                {error && <Text text={t('Вы ввели неверный логин или пароль')} theme={TextTheme.ERROR} />}
                 {/* {error && <Text text={error} theme={TextTheme.ERROR} />} */}
                 <Input
                     autofocus
                     type="text"
                     className={cls.input}
-                    placeholder={t('Введите username') || ''}
+                    placeholder={t('Введите username')}
                     onChange={onChangeUsername}
                     value={username}
 
@@ -68,7 +68,7 @@ const LoginForm = ({ className, onSuccess }: LoginFormProps) => {
                 <Input
                     type="text"
                     className={cls.input}
-                    placeholder={t('Введите пароль') || ''}
+                    placeholder={t('Введите пароль')}
                     onChange={onChangePassword}
                     value={password}
                 />
