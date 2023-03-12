@@ -6,7 +6,6 @@ export default function AboutPage() {
         <>
             <div>{t('О сайте')}</div>
             <div>{t('Описание сайта')}</div>
-            <div>{t('hello')}</div>
         </>
     );
 }
