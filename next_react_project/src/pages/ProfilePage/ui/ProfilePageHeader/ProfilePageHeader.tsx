@@ -36,7 +36,7 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
 
     return (
         <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
-            <Text title={t('Профиль')} />
+            <Text title={t('Профиль', { ns: 'profile' })} />
             {readonly
                 ? (
                     <Button
@@ -44,7 +44,7 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                         theme={ButtonTheme.OUTLINE}
                         onClick={onEdit}
                     >
-                        {t('Редактировать')}
+                        {t('Редактировать', { ns: 'profile' })}
                     </Button>
                 )
                 : (
@@ -54,14 +54,14 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                             theme={ButtonTheme.OUTLINE_RED}
                             onClick={onCancelEdit}
                         >
-                            {t('Отменить')}
+                            {t('Отменить', { ns: 'profile' })}
                         </Button>
                         <Button
                             className={cls.saveBtn}
                             theme={ButtonTheme.OUTLINE}
                             onClick={onSave}
                         >
-                            {t('Сохранить')}
+                            {t('Сохранить', { ns: 'profile' })}
                         </Button>
                     </>
                 )}
