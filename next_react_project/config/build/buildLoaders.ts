@@ -1,11 +1,11 @@
 import webpack from 'webpack';
+import ReactRefreshTypeScript from 'react-refresh-typescript';
+import { buildBabelLoaders } from './loaders/buildBabelLoaders';
 import { buildCssLoaders } from './loaders/buildCssLoaders';
 import { BuildOptions } from './types/config';
 
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ReactRefreshTypeScript = require('react-refresh-typescript');
-
-export function buildLoaders({ isDev }:BuildOptions):webpack.RuleSetRule[] {
+export function buildLoaders(options:BuildOptions):webpack.RuleSetRule[] {
+    const { isDev } = options;
     const svgLoader = {
         test: /\.svg$/,
         use: ['@svgr/webpack'],
@@ -20,16 +20,7 @@ export function buildLoaders({ isDev }:BuildOptions):webpack.RuleSetRule[] {
         ],
     };
 
-    const babelLoader = {
-        test: /\.(js|jsx|tsx)$/,
-        exclude: /node_modules/,
-        use: {
-            loader: 'babel-loader',
-            options: {
-                presets: ['@babel/preset-env'],
-            },
-        },
-    };
+    const babelLoader = buildBabelLoaders(options);
 
     const scssLoaders = buildCssLoaders(isDev);
 
