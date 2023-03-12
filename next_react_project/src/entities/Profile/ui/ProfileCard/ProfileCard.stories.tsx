@@ -1,7 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import avatar from 'shared/assets/tests/storybook.jpg';
 import { ProfileCard } from './ProfileCard';
 
 export default {
@@ -24,7 +23,7 @@ Primary.args = {
         first: 'asd',
         city: 'asf',
         currency: Currency.USD,
-        avatar,
+        avatar: 'https://thumbs.dreamstime.com/b/muslim-avatar-illustration-people-flat-icon-167640569.jpg',
     },
 };
 
