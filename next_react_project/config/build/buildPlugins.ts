@@ -6,7 +6,9 @@ import { BuildOptions } from './types/config';
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
-export function buildPlugins({ paths, isDev, apiUrl }:BuildOptions) {
+export function buildPlugins({
+    paths, isDev, apiUrl, project,
+}:BuildOptions) {
     const plugins = [
         new HtmlWebpackPlugin({
             template: paths.html,
@@ -19,6 +21,7 @@ export function buildPlugins({ paths, isDev, apiUrl }:BuildOptions) {
         new DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(apiUrl),
+            __PROJECT__: JSON.stringify(project),
         }),
         new BundleAnalyzerPlugin(
             { analyzerMode: process.env.STATS as 'server' || 'disabled' },

@@ -2,7 +2,7 @@ import React, {
     MutableRefObject,
     ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
-import { classNames, Mod } from 'shared/libs';
+import { classNames, Mods } from 'shared/libs';
 import { Portal } from 'shared/ui/Portal/Portal';
 import cls from './Modal.module.scss';
 
@@ -67,7 +67,7 @@ export const Modal = (props: ModalProps) => {
         };
     }, [isOpen, onKeyDown]);
 
-    const mods: Mod = {
+    const mods: Mods = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
     };

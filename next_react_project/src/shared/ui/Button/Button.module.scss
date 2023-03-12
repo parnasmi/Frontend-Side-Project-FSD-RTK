@@ -4,8 +4,7 @@
     padding: 6px 15px;
 }
 
-.clear,
-.clearInverted {
+.clear {
     padding: 0;
     border: none;
     background: none;
@@ -13,12 +12,22 @@
 }
 
 .clearInverted {
+    padding: 0;
+    border: none;
+    background: none;
+    outline: none;
     color: var(--inverted-primary-color);
 }
 
 .outline {
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
+    background: none;
+}
+
+.outline_red {
+    border: 1px solid var(--red-light);
+    color: var(--red-light);
     background: none;
 }
 
@@ -65,6 +74,6 @@
     font: var(--font-xl);
 }
 
-[disabled] {
+.disabled {
     opacity: 0.5;
 }
