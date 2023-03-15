@@ -1,36 +1,30 @@
-import { getUserAuthData } from 'entities/User';
-import { Suspense, useMemo } from 'react';
-import { useSelector } from 'react-redux';
+import { Suspense, useCallback } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { PageLoader } from 'shared/ui/PageLoader/PageLoader';
-import { routes as routePaths } from '../config/routes';
+import { AppRoutesProps, routes as routePaths } from '../config/routes';
+import { RequireAuth } from './RequireAuth';
 
 export default function AppRouter() {
-    const isAuth = useSelector(getUserAuthData);
-
-    const routes = useMemo(() => Object.values(routePaths).filter((route) => {
-        if (route.authOnly && !isAuth) {
-            return false;
-        }
-
-        return true;
-    }), [isAuth]);
+    const renderWithWrapper = useCallback((route: AppRoutesProps) => {
+        const element = (
+            <Suspense fallback={<PageLoader />}>
+                <div className="page-wrapper">
+                    {route.element}
+                </div>
+            </Suspense>
+        );
+        return (
+            <Route
+                key={route.path}
+                path={route.path}
+                element={route.authOnly ? <RequireAuth>{element}</RequireAuth> : element}
+            />
+        );
+    }, []);
     return (
         <Suspense fallback={<PageLoader />}>
             <Routes>
-                {routes.map(({ element, path }) => (
-                    <Route
-                        key={path}
-                        path={path}
-                        element={(
-                            <Suspense fallback={<PageLoader />}>
-                                <div className="page-wrapper">
-                                    {element}
-                                </div>
-                            </Suspense>
-                        )}
-                    />
-                ))}
+                {Object.values(routePaths).map(renderWithWrapper)}
             </Routes>
         </Suspense>
     );

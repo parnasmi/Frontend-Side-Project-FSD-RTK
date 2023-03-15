@@ -1,7 +1,7 @@
 name: linting, testing, building
 on:
   push:
-    branches: [main,6_module/profile]
+    branches: [main,7_module/private_routes_articles]
     # branches: [main, 5_module/async_reducers_tests]
   pull_request:
     branches: [main]
