@@ -14,6 +14,7 @@ export function buildWebpackConfigs(options:BuildOptions):Configuration {
             filename: '[name].[contenthash].js',
             path: paths.build,
             clean: true,
+            publicPath: '/',
         },
         module: {
             rules: buildLoaders(options),
