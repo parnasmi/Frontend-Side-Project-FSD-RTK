@@ -4,21 +4,39 @@ import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/libs';
 import { useSelector } from 'react-redux';
-import { getArticleDetailsData, getArticleDetailsIsLoading } from 'entities/Article/model/selectors/articleDetails';
+import { DynamicModuleLoader, ReducersList } from 'shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/libs/hooks/useAppDispatch';
+import { CommentList } from 'entities/Comment';
+import { useInitialEffect } from 'shared/libs/hooks/useInitialEffect';
+import { Text } from 'shared/ui/Text/Text';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
+import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
+import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
     className?: string;
 }
 
+const reducers: ReducersList = {
+    articleDetailsComments: articleDetailsCommentsReducer,
+};
+
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const { className } = props;
     const { t } = useTranslation('article-details');
-    const { id } = useParams<{ id: string }>();
-    const article = useSelector(getArticleDetailsData);
-    const isArticleLoading = useSelector(getArticleDetailsIsLoading);
+    const { id: paramId } = useParams<{ id: string }>();
+    const dispatch = useAppDispatch();
+    const comments = useSelector(getArticleComments.selectAll);
+    const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 
-    if (!id || (!article && !isArticleLoading)) {
+    const id = __PROJECT__ === 'storybook' ? '1' : paramId;
+
+    useInitialEffect(() => {
+        dispatch(fetchCommentsByArticleId(id));
+    });
+
+    if (!id) {
         return (
             <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
                 {t('Статья не найдена', { ns: 'article-details' })}
@@ -27,9 +45,16 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     }
 
     return (
-        <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-            <ArticleDetails id={id} />
-        </div>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+            <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+                <ArticleDetails id={id} />
+                <Text className={cls.commentTitle} title={t('Комментарии')} />
+                <CommentList
+                    isLoading={commentsIsLoading}
+                    comments={comments}
+                />
+            </div>
+        </DynamicModuleLoader>
     );
 };
 

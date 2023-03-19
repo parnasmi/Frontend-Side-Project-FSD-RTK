@@ -1,6 +1,6 @@
 // template-folder-name -> ArticlesPage.stories.tsx
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ArticlesPage } from './ArticlesPage';
+import ArticlesPage from './ArticlesPage';
 
 export default {
     title: 'pages/ArticlesPage',
