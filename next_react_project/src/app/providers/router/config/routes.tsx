@@ -40,7 +40,7 @@ export const routes:Record<AppRoutes, AppRoutesProps> = {
         element: <AboutPage />,
     },
     [AppRoutes.PROFILE]: {
-        path: routesPath[AppRoutes.PROFILE],
+        path: `${routesPath[AppRoutes.PROFILE]}:id`,
         element: <ProfilePage />,
         authOnly: true,
     },

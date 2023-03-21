@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { memo } from 'react';
+import { memo, Suspense, useCallback } from 'react';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/libs';
@@ -9,6 +9,9 @@ import { useAppDispatch } from 'shared/libs/hooks/useAppDispatch';
 import { CommentList } from 'entities/Comment';
 import { useInitialEffect } from 'shared/libs/hooks/useInitialEffect';
 import { Text } from 'shared/ui/Text/Text';
+import { AddCommentForm } from 'features/addCommentForm';
+import { Loader } from 'shared/ui/Loader/Loader';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
@@ -36,6 +39,10 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         dispatch(fetchCommentsByArticleId(id));
     });
 
+    const onSendComment = useCallback((text: string) => {
+        dispatch(addCommentForArticle(text));
+    }, [dispatch]);
+
     if (!id) {
         return (
             <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
@@ -48,7 +55,10 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
                 <ArticleDetails id={id} />
-                <Text className={cls.commentTitle} title={t('Комментарии')} />
+                <Text className={cls.commentTitle} title={t('Комментарии', { ns: 'article-details' })} />
+                <Suspense fallback={<Loader />}>
+                    <AddCommentForm onSendComment={onSendComment} />
+                </Suspense>
                 <CommentList
                     isLoading={commentsIsLoading}
                     comments={comments}
