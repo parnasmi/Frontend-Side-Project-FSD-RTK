@@ -26,6 +26,11 @@ Normal.args = {
 };
 
 export const Loading = Template.bind({});
+Loading.parameters = {
+    loki: {
+        skip: true,
+    },
+};
 Loading.args = {
     comment: {
         id: '1',
