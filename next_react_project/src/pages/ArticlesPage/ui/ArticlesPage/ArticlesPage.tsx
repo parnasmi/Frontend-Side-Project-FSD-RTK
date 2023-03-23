@@ -1,6 +1,6 @@
 // template-folder-name -> ArticlesPage.tsx
+import { ArticleList, ArticleView } from 'entities/Article';
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/libs';
 import cls from './ArticlesPage.module.scss';
 
@@ -10,11 +10,14 @@ interface ArticlesPageProps {
 
 const ArticlesPage = (props:ArticlesPageProps) => {
     const { className } = props;
-    const { t } = useTranslation('articles');
 
     return (
         <div className={classNames(cls.articlesPage, {}, [className])}>
-            {t('article-page', { ns: 'articles' })}
+            <ArticleList
+                isLoading
+                view={ArticleView.BIG}
+                articles={[]}
+            />
         </div>
     );
 };
