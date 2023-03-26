@@ -7,3 +7,4 @@ export { ArticleBlockType, ArticleType, ArticleView } from './model/types/articl
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
 
 export { ArticleList } from './ui/ArticleList/ArticleList';
+export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
