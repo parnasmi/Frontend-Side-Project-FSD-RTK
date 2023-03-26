@@ -117,9 +117,7 @@ export default {
 const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage {...args} />;
 
 export const Big = Template.bind({});
-Big.args = {
-
-};
+Big.args = {};
 
 Big.decorators = [StoreDecorator({
     articlesPage: {
@@ -137,9 +135,7 @@ Big.decorators = [StoreDecorator({
 })];
 
 export const Small = Template.bind({});
-Small.args = {
-
-};
+Small.args = {};
 
 Small.decorators = [StoreDecorator({
     articlesPage: {
