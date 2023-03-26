@@ -30,7 +30,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     }, [dispatch]);
 
     return (
-        <div className={classNames(cls.navbar, {}, [className])}>
+        <header className={classNames(cls.navbar, {}, [className])}>
 
             <Button
                 theme={ButtonTheme.CLEAR_INVERTED}
@@ -50,6 +50,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 )
             }
 
-        </div>
+        </header>
     );
 });

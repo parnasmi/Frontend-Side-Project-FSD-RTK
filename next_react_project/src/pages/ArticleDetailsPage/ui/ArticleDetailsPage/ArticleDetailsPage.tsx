@@ -13,6 +13,7 @@ import { AddCommentForm } from 'features/addCommentForm';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { routesPath } from 'app/providers/router';
+import { Page } from 'shared/ui/Page/Page';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
@@ -60,7 +61,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
                 <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
                     {t('Назад к списку')}
                 </Button>
@@ -73,7 +74,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     isLoading={commentsIsLoading}
                     comments={comments}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };
