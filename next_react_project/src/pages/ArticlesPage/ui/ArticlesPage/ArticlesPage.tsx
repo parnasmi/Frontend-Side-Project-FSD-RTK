@@ -1,21 +1,60 @@
 // template-folder-name -> ArticlesPage.tsx
-import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
+import { ArticleList, ArticleView, ArticleViewSelector } from 'entities/Article';
+import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
+import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { memo, useCallback } from 'react';
+import { useSelector } from 'react-redux';
 import { classNames } from 'shared/libs';
+import { DynamicModuleLoader, ReducersList } from 'shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/libs/hooks/useAppDispatch';
+import { useInitialEffect } from 'shared/libs/hooks/useInitialEffect';
+import { Page } from 'shared/ui/Page/Page';
+import {
+    getArticlesPageIsLoading,
+    getArticlesPageView,
+} from '../../model/selectors/articlesPageSelectors';
+import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slices/articlesPageSlice';
 import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
   className?: string;
 }
 
+const reducers: ReducersList = {
+    articlesPage: articlesPageReducer,
+};
+
 const ArticlesPage = (props:ArticlesPageProps) => {
     const { className } = props;
-    const { t } = useTranslation('articles');
+    const dispatch = useAppDispatch();
+    const articles = useSelector(getArticles.selectAll);
+    const isLoading = useSelector(getArticlesPageIsLoading);
+    const view = useSelector(getArticlesPageView);
+
+    const onChangeView = useCallback((view: ArticleView) => {
+        dispatch(articlesPageActions.setView(view));
+    }, [dispatch]);
+
+    const onLoadNextPart = useCallback(() => {
+        dispatch(fetchNextArticlesPage());
+    }, [dispatch]);
+
+    useInitialEffect(() => {
+        dispatch(fetchArticlesList({ page: 1 }));
+        dispatch(articlesPageActions.initState());
+    });
 
     return (
-        <div className={classNames(cls.articlesPage, {}, [className])}>
-            {t('article-page', { ns: 'articles' })}
-        </div>
+        <DynamicModuleLoader reducers={reducers}>
+            <Page onScrollEnd={onLoadNextPart} className={classNames(cls.articlesPage, {}, [className])}>
+                <ArticleViewSelector view={view} onViewClick={onChangeView} />
+                <ArticleList
+                    isLoading={isLoading}
+                    view={view}
+                    articles={articles}
+                />
+            </Page>
+        </DynamicModuleLoader>
     );
 };
 
