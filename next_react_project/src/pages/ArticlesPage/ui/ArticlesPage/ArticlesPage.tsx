@@ -8,7 +8,7 @@ import { classNames } from 'shared/libs';
 import { DynamicModuleLoader, ReducersList } from 'shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/libs/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/libs/hooks/useInitialEffect';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 import {
     getArticlesPageIsLoading,
     getArticlesPageView,
