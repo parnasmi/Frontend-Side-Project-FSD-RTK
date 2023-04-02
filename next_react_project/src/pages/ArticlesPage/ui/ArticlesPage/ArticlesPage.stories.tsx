@@ -84,7 +84,7 @@ const article2:Article = {
     id: '2',
     title: 'Python news',
     subtitle: 'Что нового в JS за 2022 год?',
-    img: 'https://zsfond.ru/wp-content/uploads/2021/03/piton-1-1024x578.jpg',
+    img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
     createdAt: '26.02.2022',
     user: {
