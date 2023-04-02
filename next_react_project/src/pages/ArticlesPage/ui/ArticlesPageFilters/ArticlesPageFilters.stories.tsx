@@ -1,5 +1,7 @@
 // template-folder-name -> ArticlesPageFilters.stories.tsx
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ArticleSortField, ArticleType, ArticleView } from 'entities/Article';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { ArticlesPageFilters } from './ArticlesPageFilters';
 
 export default {
@@ -16,3 +18,14 @@ export const Normal = Template.bind({});
 Normal.args = {
 
 };
+
+Normal.decorators = [StoreDecorator({
+    articlesPage: {
+        view: ArticleView.SMALL,
+        isLoading: false,
+        sort: ArticleSortField.CREATED,
+        order: 'asc',
+        search: '',
+        type: ArticleType.ALL,
+    },
+})];

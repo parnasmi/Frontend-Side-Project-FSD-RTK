@@ -7,6 +7,8 @@ export interface SelectOption<T extends string> {
     content: string;
 }
 
+const typedMemo: <T>(c: T) => T = memo;
+
 interface SelectProps<T extends string> {
     className?: string;
     label?: string;
@@ -16,7 +18,7 @@ interface SelectProps<T extends string> {
     readonly?: boolean;
 }
 
-export const Select = <T extends string>(props: SelectProps<T>) => {
+export const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
     const {
         className,
         label,
@@ -61,4 +63,4 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
             </select>
         </div>
     );
-};
+});
