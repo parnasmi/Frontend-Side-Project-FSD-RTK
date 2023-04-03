@@ -1,6 +1,7 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { ProgressPlugin, DefinePlugin, HotModuleReplacementPlugin } from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import CopyPlugin from 'copy-webpack-plugin';
 import { BuildOptions } from './types/config';
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -26,6 +27,11 @@ export function buildPlugins({
         new BundleAnalyzerPlugin(
             { analyzerMode: process.env.STATS as 'server' || 'disabled' },
         ),
+        new CopyPlugin({
+            patterns: [
+                { from: paths.locales, to: paths.buildLocales },
+            ],
+        }),
     ];
 
     if (isDev) {
