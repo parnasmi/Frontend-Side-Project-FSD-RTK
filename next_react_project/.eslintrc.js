@@ -13,7 +13,7 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
+    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'fsd-import-linter'],
     rules: {
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
@@ -38,7 +38,7 @@ module.exports = {
             {
                 markupOnly: true,
                 onlyAttribute: [''],
-                ignoreAttribute: ['data-testid', 'to', 'target'],
+                ignoreAttribute: ['as', 'role', 'data-testid', 'to', 'target', 'justify', 'align', 'direction', 'gap'],
             },
         ],
         'max-len': ['error', { ignoreComments: true, code: 120 }],
@@ -50,6 +50,7 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
+        'fsd-import-linter/path-checker-fsd': 2,
     },
     globals: {
         __IS_DEV__: true,
