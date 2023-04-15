@@ -1,7 +1,7 @@
 name: linting, testing, building
 on:
   push:
-    branches: [main,9_module/trottling,-debounce,-grouping,-filters,-sort,-search,-deploy]
+    branches: [main,10_module/ast_tree_optimization]
   pull_request:
     branches: [main]
 defaults:
