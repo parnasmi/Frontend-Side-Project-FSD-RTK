@@ -1,6 +1,5 @@
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { userActions } from 'entities/User';
 import { TestAsyncThunk } from 'shared/libs/tests/testAsyncThunk';
 import { fetchProfileData } from './fetchProfileData';
 
