@@ -17,3 +17,10 @@ export const Normal = Template.bind({});
 Normal.args = {
 
 };
+
+Normal.decorators = [];
+
+/*
+todo:
+    fix storybook
+*/
