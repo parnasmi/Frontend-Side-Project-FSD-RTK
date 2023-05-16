@@ -37,7 +37,7 @@ export const ArticleDetailsComments = (props:ArticleDetailsCommentsProps) => {
     });
 
     return (
-        <VStack gap="16" className={classNames('', {}, [className])}>
+        <VStack gap="16" max className={classNames('', {}, [className])}>
             <Text title={t('Комментарии', { ns: 'article-details' })} />
             <Suspense fallback={<Loader />}>
                 <AddCommentForm onSendComment={onSendComment} />
