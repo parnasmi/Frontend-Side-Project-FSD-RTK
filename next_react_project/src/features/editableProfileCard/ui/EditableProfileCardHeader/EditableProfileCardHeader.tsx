@@ -67,6 +67,7 @@ export const EditableProfileCardHeader = (props:EditableProfileCardHeaderProps) 
                                 >
                                     {t('Отменить', { ns: 'profile' })}
                                 </Button>
+
                                 <Button
                                     theme={ButtonTheme.OUTLINE}
                                     onClick={onSave}

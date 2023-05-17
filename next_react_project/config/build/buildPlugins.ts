@@ -3,6 +3,7 @@ import { ProgressPlugin, DefinePlugin, HotModuleReplacementPlugin } from 'webpac
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import CopyPlugin from 'copy-webpack-plugin';
 import CircularDependencyPlugin from 'circular-dependency-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import { BuildOptions } from './types/config';
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -39,6 +40,16 @@ export function buildPlugins({
             // add errors to webpack instead of warnings
             failOnError: true,
         }),
+        // new ForkTsCheckerWebpackPlugin({
+        //     typescript: {
+        //         diagnosticOptions: {
+        //             semantic: true,
+        //             syntactic: true,
+        //         },
+        //         mode: 'write-references',
+        //     },
+        // }),
+        new ForkTsCheckerWebpackPlugin(),
     ];
 
     if (isDev) {

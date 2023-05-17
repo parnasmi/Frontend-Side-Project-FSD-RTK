@@ -83,6 +83,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 readonly={readonly}
                 data-testid="ProfileCard.firstname"
             />
+
             <Input
                 value={data?.lastname}
                 placeholder={t('Ваша фамилия', { ns: 'profile' })}
