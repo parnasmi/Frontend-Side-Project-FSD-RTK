@@ -32,7 +32,8 @@
       "strict": true,
       "paths": {
         "*": ["./src/*"]
-      }
+      },
+      "isolatedModules": true
     },
     "ts-node": {
       "compilerOptions": {
