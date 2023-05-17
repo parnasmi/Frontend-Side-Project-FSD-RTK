@@ -1,5 +1,6 @@
 // template-folder-name -> ArticleInfiniteList.stories.tsx
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { ArticleInfiniteList } from './ArticleInfiniteList';
 
 export default {
@@ -16,3 +17,5 @@ export const Normal = Template.bind({});
 Normal.args = {
 
 };
+
+Normal.decorators = [StoreDecorator({})];

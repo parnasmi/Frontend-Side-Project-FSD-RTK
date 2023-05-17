@@ -12,8 +12,10 @@ interface ProfilePageProps {
 }
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
-    const { id } = useParams<{ id: string }>();
+    const { id: paramId } = useParams<{ id: string }>();
     const { t } = useTranslation('profile');
+
+    const id = __PROJECT__ === 'storybook' ? '1' : paramId;
 
     if (!id) {
         return <Text text={t('Профиль не найден')} />;
