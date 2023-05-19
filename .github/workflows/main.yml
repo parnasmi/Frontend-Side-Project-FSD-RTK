@@ -1,7 +1,7 @@
 name: linting, testing, building
 on:
   push:
-    branches: [main,10_module/ast_tree_optimization]
+    branches: [main,11_module/rtkQuery_refactoring]
   pull_request:
     branches: [main]
 defaults:

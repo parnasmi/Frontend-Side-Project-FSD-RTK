@@ -3,3 +3,5 @@ describe('initArticlesPage', () => {
         expect(true).toEqual(true);
     });
 });
+
+export {};

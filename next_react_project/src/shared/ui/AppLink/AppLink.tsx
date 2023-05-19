@@ -1,5 +1,5 @@
 import { Link, LinkProps } from 'react-router-dom';
-import { memo } from 'react';
+import { memo, forwardRef, ForwardedRef } from 'react';
 import { classNames } from 'shared/libs';
 import cls from './AppLink.module.scss';
 
@@ -14,7 +14,7 @@ interface AppLinkProps extends LinkProps {
     theme?: AppLinkTheme;
 }
 
-export const AppLink = memo((props:AppLinkProps) => {
+const AppLinkForwarded = forwardRef((props:AppLinkProps, ref:ForwardedRef<HTMLAnchorElement>) => {
     const {
         to,
         className,
@@ -25,11 +25,15 @@ export const AppLink = memo((props:AppLinkProps) => {
 
     return (
         <Link
+            ref={ref}
             to={to}
             className={classNames(cls.AppLink, {}, [className, cls[theme]])}
+            // eslint-disable-next-line react/jsx-props-no-spreading
             {...otherProps}
         >
             {children}
         </Link>
     );
 });
+
+export const AppLink = memo(AppLinkForwarded);

@@ -9,12 +9,15 @@
 /next_react_project/.loki/report.html
 /next_react_project/.loki/report.json
 /next_react_project/.idea
+/next_react_project/reports/
+/next_react_project/reports/unit/jest-html-reporters-attach/report/result.js
 /descr
 /.pnp
 .pnp.js
 /.idea
 /.idea/workspace.xml
 /.vscode
+
 
 # testing
 /coverage

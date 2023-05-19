@@ -52,6 +52,14 @@ export default {
     },
     rootDir: '../../',
     setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
+    reporters: [
+        'default',
+        ['jest-html-reporters', {
+            publicPath: '<rootDir>/reports/unit',
+            filename: 'report.html',
+            openReport: false,
+        }],
+    ],
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
 

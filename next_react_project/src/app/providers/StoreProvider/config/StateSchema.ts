@@ -4,13 +4,14 @@ import {
 import { CounterSchema } from 'entities/Counter/model/types/counterSchema';
 import { UserSchema } from 'entities/User/model/types/user.types';
 import { LoginSchema } from 'features/AuthByUsername';
-import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { UISchema } from 'features/UI';
 import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
+import { rtkApi } from 'shared/api/rtkApi';
+import { ProfileSchema } from 'features/editableProfileCard';
 
 export interface StateSchema {
     counter: CounterSchema;
@@ -24,6 +25,7 @@ export interface StateSchema {
     addCommentForm?: AddCommentFormSchema;
     articlesPage?: ArticlesPageSchema;
     articleDetailsPage?: ArticleDetailsPageSchema;
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 }
 
 export type StateSchemaKey = keyof StateSchema;
