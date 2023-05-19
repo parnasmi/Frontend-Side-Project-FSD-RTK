@@ -40,8 +40,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
     const isAdminPanelAvailable = isAdmin || isManager;
 
-    console.log('isAdminPanelAvailable', isAdminPanelAvailable);
-
     return (
         <header className={classNames(cls.navbar, {}, [className])}>
             <Text
