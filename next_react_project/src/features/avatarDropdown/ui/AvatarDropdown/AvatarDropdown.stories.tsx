@@ -1,4 +1,3 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { AvatarDropdown } from './AvatarDropdown';
@@ -15,5 +14,5 @@ const Template: ComponentStory<typeof AvatarDropdown> = (args) => <AvatarDropdow
 
 export const Normal = Template.bind({});
 Normal.args = {
-   
+
 };
