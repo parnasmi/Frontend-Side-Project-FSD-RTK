@@ -8,6 +8,7 @@ import { Popover } from 'shared/ui/Popups';
 // import { BrowserView, MobileView } from 'react-device-detect';
 import { Drawer } from 'shared/ui/Drawer/Drawer';
 import { useDeviceDetect } from 'shared/lib/hooks/useDeviceDetect/useDeviceDetect';
+import { AnimationProvider } from 'shared/lib/components/AnimationProvider';
 import cls from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {
@@ -33,15 +34,19 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
         </Button>
     );
 
+    console.log('isOpen', isOpen);
+
     return (
         <>
             {
                 isTouchDevice ? (
                     <>
                         {trigger}
-                        <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-                            <NotificationList />
-                        </Drawer>
+                        <AnimationProvider>
+                            <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+                                <NotificationList />
+                            </Drawer>
+                        </AnimationProvider>
                     </>
                 ) : (
                     <Popover
