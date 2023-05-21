@@ -1,6 +1,6 @@
 // template-folder-name -> [FTName].tsx
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/libs';
+import { classNames } from '@/shared/lib';
 import cls from './[FTName].module.scss';
 
 interface [FTName]Props {
