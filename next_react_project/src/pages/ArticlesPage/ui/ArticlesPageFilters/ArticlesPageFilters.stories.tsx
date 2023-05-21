@@ -1,7 +1,7 @@
 // template-folder-name -> ArticlesPageFilters.stories.tsx
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ArticleSortField, ArticleType, ArticleView } from 'entities/Article';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
+import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ArticlesPageFilters } from './ArticlesPageFilters';
 
 export default {

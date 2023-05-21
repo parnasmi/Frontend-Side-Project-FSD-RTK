@@ -45,6 +45,7 @@ export default ({ config }: {config: WebpackConfiguration}) => {
     });
 
     config!.module!.rules!.push(buildCssLoaders(true));
+    config.resolve!.alias = { '@': paths.src };
 
     config!.plugins!.push(new DefinePlugin({
         __IS_DEV__: true,

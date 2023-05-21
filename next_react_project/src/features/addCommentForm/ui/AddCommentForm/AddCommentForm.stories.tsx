@@ -1,6 +1,6 @@
 // template-folder-name -> AddCommentForm.stories.tsx
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import AddCommentForm from './AddCommentForm';
 
 export default {

@@ -1,6 +1,6 @@
 // template-folder-name -> Page.stories.tsx
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { Page } from './Page';
 
 export default {

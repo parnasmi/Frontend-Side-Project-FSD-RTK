@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { lazyLoadingTimeout } from 'shared/libs';
+import { lazyLoadingTimeout } from '@/shared/libs';
 
 // export const AboutPageAsync = lazy(() => new Promise(resolve => {
 //     // @ts-ignore
