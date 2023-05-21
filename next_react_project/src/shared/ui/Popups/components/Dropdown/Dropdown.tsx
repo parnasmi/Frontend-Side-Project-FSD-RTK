@@ -41,6 +41,7 @@ export function Dropdown(props: DropdownProps) {
                             disabled={item.disabled}
                             onClick={item.onClick}
                             className={classNames(cls.item, { [popupCls.active]: active })}
+
                         >
                             {item.content}
                         </button>
@@ -48,14 +49,23 @@ export function Dropdown(props: DropdownProps) {
 
                     if (item.href) {
                         return (
-                            <Menu.Item as={AppLink} to={item.href} disabled={item.disabled}>
+                            <Menu.Item
+                                key={item.content?.toString()}
+                                as={AppLink}
+                                to={item.href}
+                                disabled={item.disabled}
+                            >
                                 {content}
                             </Menu.Item>
                         );
                     }
 
                     return (
-                        <Menu.Item as={Fragment} disabled={item.disabled}>
+                        <Menu.Item
+                            key={item.content?.toString()}
+                            as={Fragment}
+                            disabled={item.disabled}
+                        >
                             {content}
                         </Menu.Item>
                     );

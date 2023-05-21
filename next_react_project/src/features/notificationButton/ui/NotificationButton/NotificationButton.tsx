@@ -34,19 +34,15 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
         </Button>
     );
 
-    console.log('isOpen', isOpen);
-
     return (
         <>
             {
                 isTouchDevice ? (
                     <>
                         {trigger}
-                        <AnimationProvider>
-                            <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-                                <NotificationList />
-                            </Drawer>
-                        </AnimationProvider>
+                        <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+                            <NotificationList />
+                        </Drawer>
                     </>
                 ) : (
                     <Popover
