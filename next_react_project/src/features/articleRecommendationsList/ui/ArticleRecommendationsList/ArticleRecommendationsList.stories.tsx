@@ -31,8 +31,6 @@ Normal.args = {
 
 };
 
-Normal.decorators = [];
-
 Normal.decorators = [StoreDecorator({})];
 Normal.parameters = {
     mockData: [
