@@ -49,6 +49,7 @@ export default {
         '\\.(css|scss)$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
         'entities/(.*)': '<rootDir>/src/entities/$1',
+        '^@/(.*)$': '<rootDir>/src/$1',
     },
     rootDir: '../../',
     setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],

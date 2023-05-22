@@ -1,4 +1,4 @@
-import { classNames } from 'shared/libs';
+import { classNames } from '@/shared/libs';
 import type { Mods } from '../../libs/classNames';
 
 export { classNames };

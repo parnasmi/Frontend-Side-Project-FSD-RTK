@@ -1,5 +1,5 @@
-import { article } from 'shared/const/article';
-import { TestAsyncThunk } from 'shared/libs/tests/testAsyncThunk';
+import { article } from '@/shared/const/article';
+import { TestAsyncThunk } from '@/shared/libs/tests/testAsyncThunk';
 import { fetchArticleById } from './fetchArticleById';
 
 describe('fetchArticleById.test', () => {

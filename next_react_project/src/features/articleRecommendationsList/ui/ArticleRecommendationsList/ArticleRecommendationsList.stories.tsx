@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { Article } from 'entities/Article';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { Article } from '@/entities/Article';
 import { ArticleRecommendationsList } from './ArticleRecommendationsList';
 
 const article: Article = {
@@ -30,8 +30,6 @@ export const Normal = Template.bind({});
 Normal.args = {
 
 };
-
-Normal.decorators = [];
 
 Normal.decorators = [StoreDecorator({})];
 Normal.parameters = {

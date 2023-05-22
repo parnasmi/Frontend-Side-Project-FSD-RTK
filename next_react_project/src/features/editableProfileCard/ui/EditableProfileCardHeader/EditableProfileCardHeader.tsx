@@ -1,13 +1,13 @@
 // template-folder-name -> EditableProfileCardHeader.tsx
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/libs';
 import { useSelector } from 'react-redux';
-import { getUserAuthData } from 'entities/User';
-import { useAppDispatch } from 'shared/libs/hooks/useAppDispatch';
 import { useCallback } from 'react';
-import { HStack } from 'shared/ui/Stack';
-import { Text } from 'shared/ui/Text/Text';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { classNames } from '@/shared/libs';
+import { getUserAuthData } from '@/entities/User';
+import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch';
+import { HStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text/Text';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { profileActions } from '../../model/slice/profileSlice';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';

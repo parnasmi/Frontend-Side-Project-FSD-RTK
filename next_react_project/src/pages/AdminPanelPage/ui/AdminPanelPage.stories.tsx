@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Theme } from 'shared/contexts/theme-context';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/shared/contexts/theme-context';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import AdminPanelPage from './AdminPanelPage';
 
 export default {
