@@ -1,16 +1,18 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import withMock from 'storybook-addon-mock';
 import { NotificationList } from './NotificationList';
 import { Notification } from '../../model/types/notification.types';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 
 export default {
-    title: 'entities/NotificationList',
+    title: 'entities/Notification/NotificationList',
     component: NotificationList,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [withMock],
 } as ComponentMeta<typeof NotificationList>;
 
 const notificationEntityItem: Notification = {
@@ -29,7 +31,7 @@ Normal.decorators = [StoreDecorator({})];
 Normal.parameters = {
     mockData: [
         {
-            url: `${__API__}/notifications/`,
+            url: `${__API__}/notifications`,
             method: 'GET',
             status: 200,
             response: [
