@@ -52,7 +52,7 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
-        'fsd-import-linter/path-checker-fsd': 2,
+        'fsd-import-linter/path-checker-fsd': ['error', { alias: '@' }],
     },
     globals: {
         __IS_DEV__: true,
