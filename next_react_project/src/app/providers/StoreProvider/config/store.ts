@@ -1,7 +1,10 @@
 import {
     CombinedState, configureStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
+// TODO
+// eslint-disable-next-line fsd-import-linter/public-api-imports
 import { userReducer } from '@/entities/User/model/slice/userSlice';
+// eslint-disable-next-line fsd-import-linter/public-api-imports
 import { counterReducer } from '@/entities/Counter/model/slice/counterSlice';
 import { $api } from '@/shared/api/api';
 import { uiReducer } from '@/features/UI';

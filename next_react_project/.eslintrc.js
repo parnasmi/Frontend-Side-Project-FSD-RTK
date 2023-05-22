@@ -53,6 +53,7 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
         'fsd-import-linter/path-checker-fsd': ['error', { alias: '@' }],
+        'fsd-import-linter/public-api-imports': ['error', { alias: '@' }],
     },
     globals: {
         __IS_DEV__: true,
