@@ -1,12 +1,12 @@
 import { Story } from '@storybook/react';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-import { loginReducer } from '@/features/AuthByUsername';
+import { loginReducer } from '@/features/AuthByUsername/testing';
 import { ReducersList } from '@/shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsReducer } from '@/entities/Article/testing';
 import { addCommentFormReducer } from '@/features/addCommentForm/testing';
 import { articlesPageReducer } from '@/pages/ArticlesPage/testing';
-import { uiReducer } from '@/features/UI';
+import { uiReducer } from '@/features/UI/testing';
 import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing';
 import { profileReducer } from '@/features/editableProfileCard/testing';
 

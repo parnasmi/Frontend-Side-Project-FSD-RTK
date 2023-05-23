@@ -1,7 +1,6 @@
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { routesPath } from '@/app/providers/router';
 import {
     getUserAuthData,
 } from '@/entities/User';
@@ -14,6 +13,7 @@ import { HStack } from '@/shared/ui/Stack';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import { NotificationButton } from '@/features/notificationButton';
 import cls from './Navbar.module.scss';
+import { routesPath } from '@/shared/const/router.const';
 
 interface NavbarProps {
     className?: string;

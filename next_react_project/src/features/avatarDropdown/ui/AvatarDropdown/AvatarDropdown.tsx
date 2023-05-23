@@ -6,8 +6,8 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     getUserAuthData, isUserAdmin, isUserManager, userActions,
 } from '@/entities/User';
-import { routesPath } from '@/app/providers/router';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { routesPath } from '@/shared/const/router.const';
 
 interface AvatarDropdownProps {
     className?: string;
