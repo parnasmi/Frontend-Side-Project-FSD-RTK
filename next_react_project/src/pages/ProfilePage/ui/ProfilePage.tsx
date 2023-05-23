@@ -4,7 +4,7 @@ import { classNames } from '@/shared/libs';
 
 import { VStack } from '@/shared/ui/Stack';
 import { EditableProfileCard } from '@/features/editableProfileCard';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 import { ProfileRating } from '@/features/profileRating';
 import { Page } from '@/widgets/Page';
 

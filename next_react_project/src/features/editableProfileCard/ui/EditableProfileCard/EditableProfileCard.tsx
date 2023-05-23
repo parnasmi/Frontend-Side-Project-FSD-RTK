@@ -5,7 +5,7 @@ import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useInitialEffect } from '@/shared/libs/hooks/useInitialEffect';
 import { ProfileCard } from '@/entities/Profile';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { Text, TextTheme } from '@/shared/ui/Text';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
 import { DynamicModuleLoader, ReducersList } from '@/shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';

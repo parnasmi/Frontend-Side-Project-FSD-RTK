@@ -7,8 +7,8 @@ import {
 import { LoginModal } from '@/features/AuthByUsername';
 import { classNames } from '@/shared/libs';
 import { AppLink, AppLinkTheme } from '@/shared/ui';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { TextTheme, Text } from '@/shared/ui/Text/Text';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { TextTheme, Text } from '@/shared/ui/Text';
 import { HStack } from '@/shared/ui/Stack';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import { NotificationButton } from '@/features/notificationButton';
