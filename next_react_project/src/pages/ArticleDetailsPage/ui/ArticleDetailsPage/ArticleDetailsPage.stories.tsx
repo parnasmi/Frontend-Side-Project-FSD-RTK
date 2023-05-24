@@ -1,8 +1,10 @@
 // template-folder-name -> ArticleDetailsPage.stories.tsx
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import ArticleDetailsPage from './ArticleDetailsPage';
+
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { article } from '@/shared/const/article';
-import ArticleDetailsPage from './ArticleDetailsPage';
 
 export default {
     title: 'pages/ArticleDetailsPage',

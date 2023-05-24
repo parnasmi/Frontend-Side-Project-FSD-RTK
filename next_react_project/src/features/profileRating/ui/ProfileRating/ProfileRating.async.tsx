@@ -1,5 +1,7 @@
 import { Suspense, lazy } from 'react';
+
 import { ProfileRatingProps } from './ProfileRating';
+
 import { Skeleton } from '@/shared/ui/Skeleton';
 
 export const ProfilePageAsync = lazy(() => import('./ProfileRating'));

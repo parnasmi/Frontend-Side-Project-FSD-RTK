@@ -1,5 +1,5 @@
-import React, { FC, JSXElementConstructor } from 'react';
 import { ComponentStory } from '@storybook/react';
+import React, { FC, JSXElementConstructor } from 'react';
 
 export type TemplateProxy
     // eslint-disable-next-line no-undef

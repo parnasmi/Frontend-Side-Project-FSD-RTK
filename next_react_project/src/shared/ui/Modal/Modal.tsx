@@ -1,13 +1,15 @@
 import React, {
-    MutableRefObject,
-    ReactNode, useCallback, useEffect, useRef, useState,
+    ReactNode,
 } from 'react';
-import { classNames, Mods } from '@/shared/libs';
+
+import { Overlay } from '../Overlay/Overlay';
+import { Portal } from '../Portal/Portal';
+
 import { useTheme } from '@/shared/contexts/theme-context';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
-import { Portal } from '../Portal/Portal';
+import { classNames, Mods } from '@/shared/libs';
+
 import cls from './Modal.module.scss';
-import { Overlay } from '../Overlay/Overlay';
 
 interface ModalProps {
     className?: string;

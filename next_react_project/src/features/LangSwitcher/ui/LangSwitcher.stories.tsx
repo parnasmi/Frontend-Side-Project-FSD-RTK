@@ -1,8 +1,10 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import React from 'react';
+
+import { LangSwitcher } from './LangSwitcher';
+
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/contexts/theme-context';
-import { LangSwitcher } from './LangSwitcher';
 
 export default {
     title: 'shared/LangSwitcher',

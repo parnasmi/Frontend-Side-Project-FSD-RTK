@@ -1,5 +1,7 @@
 import path, { resolve } from 'path';
+
 import { Configuration } from 'webpack';
+
 import { BuildPaths, buildWebpackConfigs, BuildEnv } from './config/build';
 
 export default (env:BuildEnv) => {

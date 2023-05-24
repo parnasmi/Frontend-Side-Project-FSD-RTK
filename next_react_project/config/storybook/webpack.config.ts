@@ -1,6 +1,8 @@
-import { WebpackConfiguration } from 'webpack-dev-server';
 import path from 'path';
+
 import { DefinePlugin, RuleSetRule } from 'webpack';
+import { WebpackConfiguration } from 'webpack-dev-server';
+
 import { BuildPaths } from '../build';
 import { buildCssLoaders } from '../build/loaders/buildCssLoaders';
 
