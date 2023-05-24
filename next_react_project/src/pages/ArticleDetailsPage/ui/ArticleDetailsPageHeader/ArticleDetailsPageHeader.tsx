@@ -1,12 +1,12 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { generatePath, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { getCanEditArticle } from '../../../ArticleDetailsPage/model/selectors/article';
 
 import { getArticleDetailsData } from '@/entities/Article';
-import { routesPath } from '@/shared/const/router.const';
+import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router.const';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
@@ -23,13 +23,11 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
     const article = useSelector(getArticleDetailsData);
 
     const onBackToList = useCallback(() => {
-        navigate(routesPath.articles);
+        navigate(getRouteArticles());
     }, [navigate]);
 
     const onEditArticle = useCallback(() => {
-        navigate(`${routesPath.article_details}${generatePath(':id/edit', {
-            id: article?.id as string,
-        })}`);
+        navigate(getRouteArticleEdit(article?.id as string));
     }, [article?.id, navigate]);
 
     return (
