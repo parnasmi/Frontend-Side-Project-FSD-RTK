@@ -127,7 +127,8 @@
     "react-i18next": "^12.1.5",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1",
-    "storybook-addon-mock": "^2.4.1"
+    "storybook-addon-mock": "^2.4.1",
+    "postinstall": "rm -rf ./node_modules/.cache"
   },
   "loki": {
     "fetchFailIgnore": ".*",

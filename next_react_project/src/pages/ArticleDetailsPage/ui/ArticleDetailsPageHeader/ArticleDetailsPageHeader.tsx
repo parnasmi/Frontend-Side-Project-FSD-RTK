@@ -35,6 +35,7 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
             <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
                 {t('Назад к списку')}
             </Button>
+
             {canEdit && (
                 <Button
                     theme={ButtonTheme.OUTLINE}
