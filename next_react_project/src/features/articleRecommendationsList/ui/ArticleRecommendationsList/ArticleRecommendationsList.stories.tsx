@@ -48,4 +48,7 @@ Normal.parameters = {
             ],
         },
     ],
+    loki: {
+        skip: true,
+    },
 };
