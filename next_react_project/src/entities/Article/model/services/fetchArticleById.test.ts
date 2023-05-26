@@ -1,6 +1,7 @@
+import { fetchArticleById } from './fetchArticleById';
+
 import { article } from '@/shared/const/article';
 import { TestAsyncThunk } from '@/shared/libs/tests/testAsyncThunk';
-import { fetchArticleById } from './fetchArticleById';
 
 describe('fetchArticleById.test', () => {
     test('success fetch article by id', async () => {

@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import type { User } from '@/entities/User';
 import { userActions } from '@/entities/User';

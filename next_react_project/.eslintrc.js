@@ -13,7 +13,15 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'fsd-import-linter'],
+    plugins: [
+        'react',
+        '@typescript-eslint',
+        'i18next',
+        'react-hooks',
+        'fsd-import-linter',
+        'unused-imports',
+        'import',
+    ],
     rules: {
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
@@ -52,7 +60,43 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
-        'fsd-import-linter/path-checker-fsd': 2,
+        'fsd-import-linter/path-checker-fsd': ['error', { alias: '@' }],
+        'fsd-import-linter/public-api-imports': ['error',
+            {
+                alias: '@',
+                testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'],
+            },
+        ],
+        'fsd-import-linter/fsd-layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
+        ],
+        'unused-imports/no-unused-imports': 'error',
+        'import/order': [
+            'error',
+            {
+                pathGroups: [
+                    {
+                        pattern: '@/**',
+                        group: 'internal',
+                        position: 'after',
+                    },
+                    {
+                        pattern: './**.module.*',
+                        group: 'internal',
+                        position: 'after',
+                    },
+                ],
+                'newlines-between': 'always',
+                alphabetize: {
+                    order: 'asc',
+                    caseInsensitive: false,
+                },
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,

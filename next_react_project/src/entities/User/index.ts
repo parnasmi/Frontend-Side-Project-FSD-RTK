@@ -17,3 +17,7 @@ export type {
     UserSchema,
     User,
 } from './model/types/user.types';
+
+export {
+    UserRole,
+} from './model/types/user.types';

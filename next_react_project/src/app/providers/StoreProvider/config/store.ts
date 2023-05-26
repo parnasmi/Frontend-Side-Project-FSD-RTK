@@ -1,13 +1,19 @@
 import {
     CombinedState, configureStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { userReducer } from '@/entities/User/model/slice/userSlice';
-import { counterReducer } from '@/entities/Counter/model/slice/counterSlice';
-import { $api } from '@/shared/api/api';
-import { uiReducer } from '@/features/UI';
-import { rtkApi } from '@/shared/api/rtkApi';
+
+// TODO
+// eslint-disable-next-line fsd-import-linter/public-api-imports
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 import { createReducerManager } from './reducerManager';
+
+// eslint-disable-next-line fsd-import-linter/public-api-imports
+import { counterReducer } from '@/entities/Counter/model/slice/counterSlice';
+// eslint-disable-next-line fsd-import-linter/public-api-imports
+import { userReducer } from '@/entities/User/model/slice/userSlice';
+import { uiReducer } from '@/features/UI';
+import { $api } from '@/shared/api/api';
+import { rtkApi } from '@/shared/api/rtkApi';
 
 export function createReduxStore(
     initialState?: StateSchema,

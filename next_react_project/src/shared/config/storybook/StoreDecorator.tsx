@@ -1,14 +1,15 @@
-import { Story } from '@storybook/react';
 import { ReducersMapObject } from '@reduxjs/toolkit';
+import { Story } from '@storybook/react';
+
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-import { loginReducer } from '@/features/AuthByUsername';
+import { articleDetailsReducer } from '@/entities/Article/testing';
+import { loginReducer } from '@/features/AuthByUsername/testing';
+import { uiReducer } from '@/features/UI/testing';
+import { addCommentFormReducer } from '@/features/addCommentForm/testing';
+import { profileReducer } from '@/features/editableProfileCard/testing';
+import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing';
+import { articlesPageReducer } from '@/pages/ArticlesPage/testing';
 import { ReducersList } from '@/shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
-import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice';
-import { addCommentFormReducer } from '@/features/addCommentForm/model/slices/addCommentFormSlice';
-import { articlesPageReducer } from '@/pages/ArticlesPage/model/slices/articlesPageSlice';
-import { uiReducer } from '@/features/UI';
-import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slices';
-import { profileReducer } from '@/features/editableProfileCard/model/slice/profileSlice';
 
 const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,

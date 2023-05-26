@@ -1,6 +1,8 @@
-import { WebpackConfiguration } from 'webpack-dev-server';
 import path from 'path';
+
 import { DefinePlugin, RuleSetRule } from 'webpack';
+import { WebpackConfiguration } from 'webpack-dev-server';
+
 import { BuildPaths } from '../build';
 import { buildCssLoaders } from '../build/loaders/buildCssLoaders';
 
@@ -45,7 +47,10 @@ export default ({ config }: {config: WebpackConfiguration}) => {
     });
 
     config!.module!.rules!.push(buildCssLoaders(true));
-    config.resolve!.alias = { '@': paths.src };
+    config.resolve!.alias = {
+        ...config.resolve!.alias,
+        '@': paths.src,
+    };
 
     config!.plugins!.push(new DefinePlugin({
         __IS_DEV__: true,

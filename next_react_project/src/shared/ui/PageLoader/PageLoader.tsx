@@ -1,5 +1,7 @@
-import { classNames } from '@/shared/libs';
 import { Loader } from '../Loader/Loader';
+
+import { classNames } from '@/shared/libs';
+
 import cls from './PageLoader.module.scss';
 
 interface PageLoaderProps {

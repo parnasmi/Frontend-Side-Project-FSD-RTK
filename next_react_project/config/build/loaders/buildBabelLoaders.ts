@@ -13,6 +13,7 @@ export function buildBabelLoaders({ isTsx, isDev }: BuildBabelLoaderProps) {
         use: {
             loader: 'babel-loader',
             options: {
+                cacheDirectory: true,
                 presets: ['@babel/preset-env'],
                 plugins: [
                     [

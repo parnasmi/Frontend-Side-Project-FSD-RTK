@@ -1,10 +1,12 @@
 // template-folder-name -> ArticlesPage.stories.tsx
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import ArticlesPage from './ArticlesPage';
+
 import {
     Article, ArticleBlockType, ArticleType, ArticleView,
 } from '@/entities/Article';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import ArticlesPage from './ArticlesPage';
 
 const article1:Article = {
     id: '1',

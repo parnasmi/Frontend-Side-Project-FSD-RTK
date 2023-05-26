@@ -1,9 +1,10 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import React from 'react';
+
+import { ErrorPage } from './ErrorPage';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/contexts/theme-context';
-import { ErrorPage } from './ErrorPage';
 
 export default {
     title: 'widget/ErrorPage',

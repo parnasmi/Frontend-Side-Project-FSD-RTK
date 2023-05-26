@@ -1,96 +1,81 @@
 import { RouteProps } from 'react-router-dom';
+
+import { UserRole } from '@/entities/User';
 import { AboutPage } from '@/pages/AboutPage';
+import { AdminPanelPage } from '@/pages/AdminPanelPage';
+import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
+import { ArticleEditPage } from '@/pages/ArticleEditPage';
+import { ArticlesPage } from '@/pages/ArticlesPage';
+import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import { MainPage } from '@/pages/MainPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ProfilePage } from '@/pages/ProfilePage';
-import { ArticlesPage } from '@/pages/ArticlesPage';
-import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
-import { ArticleEditPage } from '@/pages/ArticleEditPage';
-import { UserRole } from '@/entities/User/model/types/user.types';
-import AdminPanelPage from '@/pages/AdminPanelPage/ui/AdminPanelPage';
-import { ForbiddenPage } from '@/pages/ForbiddenPage';
+import {
+    AppRoutes,
+    getRouteAbout,
+    getRouteAdmin,
+    getRouteArticleCreate,
+    getRouteArticleDetails,
+    getRouteArticleEdit,
+    getRouteArticles,
+    getRouteForbidden,
+    getRouteMain,
+    getRouteProfile,
+} from '@/shared/const/router.const';
 
 export type AppRoutesProps = RouteProps & {
     authOnly?: boolean;
     roles?: UserRole[];
 }
 
-export enum AppRoutes {
-    MAIN = 'main',
-    ABOUT = 'about',
-    PROFILE = 'profile',
-    ARTICLES = 'articles',
-    ARTICLE_DETAILS = 'article_details',
-    ARTICLE_CREATE = 'article_create',
-    ARTICLE_EDIT = 'article_edit',
-    ADMIN_PANEL = 'admin_panel',
-    FORBIDDEN = 'forbidden',
-    // last
-    NOT_FOUND = 'not_found'
-}
-
-export const routesPath: Record<AppRoutes, string> = {
-    [AppRoutes.MAIN]: '/',
-    [AppRoutes.ABOUT]: '/about',
-    [AppRoutes.PROFILE]: '/profile/',
-    [AppRoutes.ARTICLES]: '/articles',
-    [AppRoutes.ARTICLE_DETAILS]: '/articles/', // + :id
-    [AppRoutes.ARTICLE_CREATE]: '/articles/new',
-    [AppRoutes.ARTICLE_EDIT]: '/articles/:id/edit',
-    [AppRoutes.ADMIN_PANEL]: '/admin',
-    [AppRoutes.FORBIDDEN]: '/forbidden',
-    // Should be last one
-    [AppRoutes.NOT_FOUND]: '*',
-};
-
 export const routes:Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
-        path: routesPath[AppRoutes.MAIN],
+        path: getRouteMain(),
         element: <MainPage />,
     },
     [AppRoutes.ABOUT]: {
-        path: routesPath[AppRoutes.ABOUT],
+        path: getRouteAbout(),
         element: <AboutPage />,
     },
     [AppRoutes.PROFILE]: {
-        path: `${routesPath[AppRoutes.PROFILE]}:id`,
+        path: getRouteProfile(':id'),
         element: <ProfilePage />,
         authOnly: true,
     },
     [AppRoutes.ARTICLES]: {
-        path: routesPath[AppRoutes.ARTICLES],
+        path: getRouteArticles(),
         element: <ArticlesPage />,
         authOnly: true,
     },
     [AppRoutes.ARTICLE_DETAILS]: {
-        path: `${routesPath[AppRoutes.ARTICLE_DETAILS]}:id`,
+        path: getRouteArticleDetails(':id'),
         element: <ArticleDetailsPage />,
         authOnly: true,
     },
     [AppRoutes.ARTICLE_CREATE]: {
-        path: `${routesPath[AppRoutes.ARTICLE_CREATE]}`,
+        path: getRouteArticleCreate(),
         element: <ArticleEditPage />,
         authOnly: true,
     },
     [AppRoutes.ARTICLE_EDIT]: {
-        path: `${routesPath[AppRoutes.ARTICLE_EDIT]}`,
+        path: getRouteArticleEdit(':id'),
         element: <ArticleEditPage />,
         authOnly: true,
     },
     [AppRoutes.ADMIN_PANEL]: {
-        path: `${routesPath[AppRoutes.ADMIN_PANEL]}`,
+        path: getRouteAdmin(),
         element: <AdminPanelPage />,
         authOnly: true,
         roles: [UserRole.MANAGER, UserRole.ADMIN],
     },
     [AppRoutes.FORBIDDEN]: {
-        path: `${routesPath[AppRoutes.FORBIDDEN]}`,
+        path: getRouteForbidden(),
         element: <ForbiddenPage />,
         authOnly: true,
     },
     // last
     [AppRoutes.NOT_FOUND]: {
-        path: routesPath[AppRoutes.NOT_FOUND],
+        path: '*',
         element: <NotFoundPage />,
     },
 };

@@ -1,5 +1,6 @@
-import webpack from 'webpack';
 import ReactRefreshTypeScript from 'react-refresh-typescript';
+import webpack from 'webpack';
+
 import { buildBabelLoaders } from './loaders/buildBabelLoaders';
 import { buildCssLoaders } from './loaders/buildCssLoaders';
 import { BuildOptions } from './types/config';

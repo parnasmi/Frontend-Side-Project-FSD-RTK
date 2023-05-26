@@ -1,4 +1,5 @@
 import { Story } from '@storybook/react';
+
 import { Theme, ThemeProvider } from '../../contexts/theme-context';
 
 export const ThemeDecorator = (theme: Theme) => (StoryComponent: Story) => {

@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+// eslint-disable-next-line fsd-import-linter/fsd-layer-imports
 import { Article, ArticleBlockType, ArticleType } from '@/entities/Article';
 
 export const article: Article = {

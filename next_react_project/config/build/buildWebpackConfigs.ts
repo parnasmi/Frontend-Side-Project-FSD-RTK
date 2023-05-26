@@ -1,4 +1,5 @@
 import { Configuration } from 'webpack';
+
 import { buildDevServer } from './buildDevServer';
 import { buildLoaders } from './buildLoaders';
 import { buildPlugins } from './buildPlugins';
@@ -20,7 +21,7 @@ export function buildWebpackConfigs(options:BuildOptions):Configuration {
             rules: buildLoaders(options),
         },
         resolve: buildResolvers(options),
-        devtool: isDev ? 'inline-source-map' : undefined,
+        devtool: isDev ? 'eval-cheap-module-source-map' : undefined,
         plugins: buildPlugins(options),
         watchOptions: {
             // for some systems, watching many files can result in a lot of CPU or memory usage
