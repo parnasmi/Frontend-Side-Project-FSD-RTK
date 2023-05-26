@@ -101,3 +101,15 @@
         text-overflow: ellipsis;
     }
 }
+
+.errorFallback {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.bigImageWrapper {
+    height: 200px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
