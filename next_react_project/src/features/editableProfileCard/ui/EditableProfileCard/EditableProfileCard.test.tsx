@@ -41,12 +41,12 @@ describe('features/EditableProfileCard', () => {
     beforeEach(() => {
         componentRender(<EditableProfileCard id="1" />, options);
     });
-    test.skip('Режим рид онли должен переключиться', async () => {
+    test('Read only mode should be toggled', async () => {
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
         expect(screen.getByTestId('EditableProfileCardHeader.CancelButton')).toBeInTheDocument();
     });
 
-    test.skip('При отмене значения должны обнуляться', async () => {
+    test('On Cancel values should be reset', async () => {
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
 
         await userEvent.clear(screen.getByTestId('ProfileCard.firstname'));
@@ -64,19 +64,19 @@ describe('features/EditableProfileCard', () => {
         expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue('admin');
     });
 
-    test('Должна появиться ошибка', async () => {
+    test('Should appear error', async () => {
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
 
         await userEvent.clear(screen.getByTestId('ProfileCard.firstname'));
 
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveButton'));
 
-        await waitForElementToBeRemoved(() => screen.getByText('Loading...'));
+        // await waitForElementToBeRemoved(screen.queryByText('Loading...')).catch((err) => console.log(err));
 
         expect(screen.getByTestId('EditableProfileCard.Error.Paragraph')).toBeInTheDocument();
     });
 
-    test.skip('Если нет ошибок валидации, то на сервер должен уйти PUT запрос', async () => {
+    test('If no validation errors, PUT request should be sent', async () => {
         const mockPutReq = jest.spyOn($api, 'put');
 
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));

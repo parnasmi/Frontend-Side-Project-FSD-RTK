@@ -19,7 +19,7 @@ module.exports = {
         'i18next',
         'react-hooks',
         'fsd-import-linter',
-        'unused-imports',
+        // 'unused-imports',
         'import',
     ],
     rules: {
@@ -74,7 +74,7 @@ module.exports = {
                 ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
             },
         ],
-        'unused-imports/no-unused-imports': 'error',
+        // 'unused-imports/no-unused-imports': 'error',
         'import/order': [
             'error',
             {

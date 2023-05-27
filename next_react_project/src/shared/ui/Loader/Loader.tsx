@@ -7,7 +7,7 @@ interface LoaderProps {
 
 export const Loader = ({ className }: LoaderProps) => (
     <div className={classNames('lds-ellipsis', {}, [className])}>
-        <span style={{ display: 'none' }}>Loading...</span>
+        <span data-testid="loader" style={{ display: 'none' }}>Loading...</span>
         <div />
         <div />
         <div />

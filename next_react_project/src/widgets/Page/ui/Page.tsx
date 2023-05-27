@@ -18,14 +18,20 @@ interface PageProps {
     className?: string;
     children: ReactNode;
     onScrollEnd?: () => void;
+    dataTestId?: string
 }
 
 export const Page = memo((props: PageProps) => {
-    const { className, children, onScrollEnd } = props;
+    const {
+        className, children, onScrollEnd, dataTestId = 'Page',
+    } = props;
+
     const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();
+
     const { pathname } = useLocation();
+
     const scrollPosition = useSelector(
         (state: StateSchema) => getUIScrollByPath(state, pathname),
     );
@@ -52,6 +58,7 @@ export const Page = memo((props: PageProps) => {
             ref={wrapperRef}
             className={classNames(cls.Page, {}, [className])}
             onScroll={onScroll}
+            data-testid={dataTestId}
         >
             {children}
             {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
