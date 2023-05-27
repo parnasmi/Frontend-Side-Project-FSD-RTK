@@ -29,10 +29,6 @@
     "storybook:build": "build-storybook --config-dir ./config/storybook",
     "generate:slice": "node ./scripts/createSlice/index.js"
   },
-  "lint-staged": {
-    "**/*.{ts,tsx}": "eslint",
-    "**/*.scss": "stylelint"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -92,7 +88,7 @@
     "jest-environment-jsdom": "^29.4.2",
     "jest-html-reporters": "^3.1.4",
     "json-server": "^0.17.2",
-    "lint-staged": "^13.2.2",
+    "lint-staged": "^13.0.3",
     "loki": "^0.31.0",
     "mini-css-extract-plugin": "^2.7.2",
     "npm": "^9.6.7",
