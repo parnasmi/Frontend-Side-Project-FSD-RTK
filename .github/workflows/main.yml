@@ -102,8 +102,8 @@ jobs:
         run: npm run build:prod
       - name: build storybook
         run: npm run storybook:build
-      # - name: screenshot testing
-      #   run: npm run test:ui:ci
+      - name: screenshot testing
+        run: npm run test:ui:ci
       - name: Generate HTML report
         run: npm run test:ui:report
         if: always()
