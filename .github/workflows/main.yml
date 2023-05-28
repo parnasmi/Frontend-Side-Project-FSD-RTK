@@ -7,6 +7,13 @@ on:
 defaults:
   run:
     working-directory: ./next_react_project
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 jobs:
   typescript:
     runs-on: ubuntu-latest
