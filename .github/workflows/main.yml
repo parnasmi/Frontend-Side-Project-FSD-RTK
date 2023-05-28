@@ -107,6 +107,9 @@ jobs:
       - name: Generate HTML report
         run: npm run test:ui:report
         if: always()
+      - name: Move loki
+        run: mv .loki reports/
+        if: always()
       - name: Setup Pages
         uses: actions/configure-pages@v2
         if: always()
@@ -114,7 +117,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         if: always()
         with:
-          path: "./next_react_project/.loki"
+          path: "./next_react_project/reports"
       - name: Deploy to GitHub Pages
         id: deployment
         if: always()
