@@ -1,6 +1,4 @@
-import {
-    queryByTestId, screen, waitFor, waitForElementToBeRemoved,
-} from '@testing-library/react';
+import { screen, waitForElementToBeRemoved } from '@testing-library/react';
 
 import AppRouter from './AppRouter';
 
