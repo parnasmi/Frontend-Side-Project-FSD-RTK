@@ -18,4 +18,7 @@ module.exports = {
     docs: {
         autodocs: true,
     },
+    features: {
+        storyStoreV7: false,
+    },
 };

@@ -136,6 +136,7 @@
   },
   "loki": {
     "fetchFailIgnore": ".*",
+    "chromeSelector": "#storybook-root > *",
     "configurations": {
       "chrome.laptop": {
         "target": "chrome.docker",
