@@ -1,11 +1,7 @@
 module.exports = {
-    stories: [
-        '../../src/**/*.stories.mdx',
-        '../../src/**/*.stories.@(js|jsx|ts|tsx)',
-    ],
+    stories: ['../../src/**/*.stories.mdx', '../../src/**/*.stories.@(js|jsx|ts|tsx)'],
     addons: [
-        '@storybook/addon-links',
-        {
+        '@storybook/addon-links', {
             name: '@storybook/addon-essentials',
             options: {
                 backgrounds: false,
@@ -13,11 +9,13 @@ module.exports = {
         },
         '@storybook/addon-interactions',
         'storybook-addon-mock',
-        'storybook-addon-themes',
-    ],
-    framework: '@storybook/react',
-    core: {
-        builder: '@storybook/builder-webpack5',
+        'storybook-addon-themes'],
+    framework: {
+        name: '@storybook/react-webpack5',
+        options: {},
     },
     staticDirs: ['../../public'], // for translations
+    docs: {
+        autodocs: true,
+    },
 };
