@@ -1,10 +1,10 @@
-import { ComponentStory } from '@storybook/react';
+import { ComponentStory, StoryFn } from '@storybook/react';
 import React, { FC, JSXElementConstructor } from 'react';
 
 export type TemplateProxy
     // eslint-disable-next-line no-undef
     <T extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>> =
-    (template: ComponentStory<T>) => ComponentStory<T>;
+    (template: StoryFn<T>) => ComponentStory<T>;
 
 export type TemplateCreator
     // eslint-disable-next-line no-undef
@@ -13,15 +13,16 @@ export type TemplateCreator
 
 // eslint-disable-next-line no-undef
 export const createTemplate = <T extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>>
-    (templateProxies: TemplateProxy<T>[], Component: FC): ComponentStory<T> => {
-    let Template: ComponentStory<any> = (args) => <Component {...args} />;
+    (templateProxies: TemplateProxy<T>[], Component: FC): StoryFn<T> => {
+    let Template: StoryFn<any> = (args) => <Component {...args} />;
 
     // eslint-disable-next-line no-plusplus
     for (let i = 0; i < templateProxies.length; i++) {
         const templateCreator = templateProxies[i];
+        // @ts-ignore
         Template = templateCreator(Template);
     }
-
+    // @ts-ignore
     return Template;
 };
 
