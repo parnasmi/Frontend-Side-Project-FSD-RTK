@@ -1,4 +1,5 @@
-import { login } from './commands/login.cy';
+import * as commonCommands from './commands/common.cy';
+import * as profileCoomands from './commands/profile.cy';
 /// <reference types="cypress" />
 // ***********************************************
 // This example commands.ts shows you how to
@@ -11,7 +12,8 @@ import { login } from './commands/login.cy';
 // ***********************************************
 
 // -- This is a parent command --
-Cypress.Commands.add('login', login);
+Cypress.Commands.addAll(commonCommands);
+Cypress.Commands.addAll(profileCoomands);
 
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
@@ -21,15 +23,5 @@ Cypress.Commands.add('login', login);
 
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-declare global {
-  namespace Cypress {
-    interface Chainable {
-      login(username?: string, password?: string): Chainable<void>
-      // drag(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-      // dismiss(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-      // visit(originalFn: CommandOriginalFn, url: string, options: Partial<VisitOptions>): Chainable<Element>
-    }
-  }
-}
 
 export {};
