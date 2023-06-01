@@ -16,26 +16,28 @@ interface AppLinkProps extends LinkProps {
     theme?: AppLinkTheme;
 }
 
-const AppLinkForwarded = forwardRef((props:AppLinkProps, ref:ForwardedRef<HTMLAnchorElement>) => {
-    const {
-        to,
-        className,
-        children,
-        theme = AppLinkTheme.PRIMARY,
-        ...otherProps
-    } = props;
+const AppLinkForwarded = forwardRef(
+    (props: AppLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => {
+        const {
+            to,
+            className,
+            children,
+            theme = AppLinkTheme.PRIMARY,
+            ...otherProps
+        } = props;
 
-    return (
-        <Link
-            ref={ref}
-            to={to}
-            className={classNames(cls.AppLink, {}, [className, cls[theme]])}
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            {...otherProps}
-        >
-            {children}
-        </Link>
-    );
-});
+        return (
+            <Link
+                ref={ref}
+                to={to}
+                className={classNames(cls.AppLink, {}, [className, cls[theme]])}
+                // eslint-disable-next-line react/jsx-props-no-spreading
+                {...otherProps}
+            >
+                {children}
+            </Link>
+        );
+    },
+);
 
 export const AppLink = memo(AppLinkForwarded);

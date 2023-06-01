@@ -12,7 +12,9 @@ describe('AppRouter', () => {
             route: '/about',
         });
 
-        await waitForElementToBeRemoved(screen.queryByText('Loading...')).catch((err) => console.log(err));
+        await waitForElementToBeRemoved(screen.queryByText('Loading...')).catch(
+            (err) => console.log(err),
+        );
 
         const page = await screen.findByTestId('AboutPage');
         expect(page).toBeInTheDocument();
@@ -32,7 +34,9 @@ describe('AppRouter', () => {
             route: getRouteProfile('1'),
         });
 
-        await waitForElementToBeRemoved(screen.queryByText('Loading...')).catch((err) => console.log(err));
+        await waitForElementToBeRemoved(screen.queryByText('Loading...')).catch(
+            (err) => console.log(err),
+        );
 
         const page = await screen.findByTestId('MainPage');
         expect(page).toBeInTheDocument();
@@ -46,7 +50,9 @@ describe('AppRouter', () => {
             },
         });
 
-        await waitForElementToBeRemoved(screen.queryByText('Loading...')).catch((err) => console.log(err));
+        await waitForElementToBeRemoved(screen.queryByText('Loading...')).catch(
+            (err) => console.log(err),
+        );
 
         const page = await screen.findByTestId('ProfilePage');
         expect(page).toBeInTheDocument();
@@ -56,11 +62,13 @@ describe('AppRouter', () => {
         componentRender(<AppRouter />, {
             route: getRouteAdmin(),
             initialState: {
-                user: { _inited: true, authData: { } },
+                user: { _inited: true, authData: {} },
             },
         });
 
-        await waitForElementToBeRemoved(screen.queryByText('Loading...')).catch((err) => console.log(err));
+        await waitForElementToBeRemoved(screen.queryByText('Loading...')).catch(
+            (err) => console.log(err),
+        );
 
         const page = await screen.findByTestId('ForbiddenPage');
         expect(page).toBeInTheDocument();
@@ -74,7 +82,9 @@ describe('AppRouter', () => {
             },
         });
 
-        await waitForElementToBeRemoved(screen.queryByText('Loading...')).catch((err) => console.log(err));
+        await waitForElementToBeRemoved(screen.queryByText('Loading...')).catch(
+            (err) => console.log(err),
+        );
 
         const page = await screen.findByTestId('AdminPanelPage');
         expect(page).toBeInTheDocument();

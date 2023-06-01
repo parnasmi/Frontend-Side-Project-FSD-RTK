@@ -6,7 +6,7 @@ import { WebpackConfiguration } from 'webpack-dev-server';
 import { BuildPaths } from '../build';
 import { buildCssLoaders } from '../build/loaders/buildCssLoaders';
 
-export default ({ config }: {config: WebpackConfiguration}) => {
+export default ({ config }: { config: WebpackConfiguration }) => {
     const paths: BuildPaths = {
         build: '',
         html: '',
@@ -52,11 +52,13 @@ export default ({ config }: {config: WebpackConfiguration}) => {
         '@': paths.src,
     };
 
-    config!.plugins!.push(new DefinePlugin({
-        __IS_DEV__: true,
-        __API__: JSON.stringify('http://testapi.uz'),
-        __PROJECT__: JSON.stringify('storybook'),
-    }));
+    config!.plugins!.push(
+        new DefinePlugin({
+            __IS_DEV__: true,
+            __API__: JSON.stringify('http://testapi.uz'),
+            __PROJECT__: JSON.stringify('storybook'),
+        }),
+    );
 
     return config;
 };

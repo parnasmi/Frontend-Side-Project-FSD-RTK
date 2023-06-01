@@ -12,8 +12,10 @@ interface ErrorBoundaryState {
 
 // better way of using Errorboundary - https://www.youtube.com/watch?v=gyqAW0--0Tc&t=2s
 
-class ErrorBoundary
-    extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
+class ErrorBoundary extends React.Component<
+    ErrorBoundaryProps,
+    ErrorBoundaryState
+> {
     constructor(props: ErrorBoundaryProps) {
         super(props);
         this.state = { hasError: false };

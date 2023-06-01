@@ -8,4 +8,6 @@ import { lazyLoadingTimeout } from '@/shared/libs';
 //     setTimeout(() => resolve(import('./AboutPage')), 1500)
 // }));
 
-export const ForbiddenPageAsync = lazy(() => lazyLoadingTimeout(import('./ForbiddenPage'), 1000));
+export const ForbiddenPageAsync = lazy(() =>
+    lazyLoadingTimeout(import('./ForbiddenPage'), 1000),
+);

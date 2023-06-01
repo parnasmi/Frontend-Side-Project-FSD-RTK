@@ -1,19 +1,23 @@
 import { ComponentStory, StoryFn } from '@storybook/react';
 import React, { FC, JSXElementConstructor } from 'react';
 
-export type TemplateProxy
-    // eslint-disable-next-line no-undef
-    <T extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>> =
-    (template: StoryFn<T>) => ComponentStory<T>;
+export type TemplateProxy// eslint-disable-next-line no-undef
+<T extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>> = (
+    template: StoryFn<T>,
+) => ComponentStory<T>;
 
-export type TemplateCreator
-    // eslint-disable-next-line no-undef
-    <T, K extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>> =
-    (value: T) => TemplateProxy<K>;
+export type TemplateCreator// eslint-disable-next-line no-undef
+<T, K extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>> = (
+    value: T,
+) => TemplateProxy<K>;
 
 // eslint-disable-next-line no-undef
-export const createTemplate = <T extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>>
-    (templateProxies: TemplateProxy<T>[], Component: FC): StoryFn<T> => {
+export const createTemplate = <
+    T extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>,
+>(
+    templateProxies: TemplateProxy<T>[],
+    Component: FC,
+): StoryFn<T> => {
     let Template: StoryFn<any> = (args) => <Component {...args} />;
 
     // eslint-disable-next-line no-plusplus

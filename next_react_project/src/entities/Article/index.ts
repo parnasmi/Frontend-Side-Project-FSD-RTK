@@ -1,10 +1,11 @@
-export {
-    ArticleDetails,
-} from './ui/ArticleDetails/ArticleDetails';
+export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 
 export type { Article } from './model/types/article';
 export {
-    ArticleBlockType, ArticleType, ArticleView, ArticleSortField,
+    ArticleBlockType,
+    ArticleType,
+    ArticleView,
+    ArticleSortField,
 } from './model/types/article';
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
 

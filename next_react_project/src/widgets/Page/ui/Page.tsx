@@ -1,6 +1,4 @@
-import {
-    memo, MutableRefObject, ReactNode, useRef, UIEvent,
-} from 'react';
+import { memo, MutableRefObject, ReactNode, useRef, UIEvent } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
@@ -18,13 +16,11 @@ interface PageProps {
     className?: string;
     children: ReactNode;
     onScrollEnd?: () => void;
-    dataTestId?: string
+    dataTestId?: string;
 }
 
 export const Page = memo((props: PageProps) => {
-    const {
-        className, children, onScrollEnd, dataTestId = 'Page',
-    } = props;
+    const { className, children, onScrollEnd, dataTestId = 'Page' } = props;
 
     const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -32,8 +28,8 @@ export const Page = memo((props: PageProps) => {
 
     const { pathname } = useLocation();
 
-    const scrollPosition = useSelector(
-        (state: StateSchema) => getUIScrollByPath(state, pathname),
+    const scrollPosition = useSelector((state: StateSchema) =>
+        getUIScrollByPath(state, pathname),
     );
 
     useInfiniteScroll({
@@ -47,10 +43,12 @@ export const Page = memo((props: PageProps) => {
     });
 
     const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-        dispatch(uiActions.setScrollPosition({
-            position: e.currentTarget.scrollTop,
-            path: pathname,
-        }));
+        dispatch(
+            uiActions.setScrollPosition({
+                position: e.currentTarget.scrollTop,
+                path: pathname,
+            }),
+        );
     }, 500);
 
     return (
@@ -61,7 +59,9 @@ export const Page = memo((props: PageProps) => {
             data-testid={dataTestId}
         >
             {children}
-            {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
+            {onScrollEnd ? (
+                <div className={cls.trigger} ref={triggerRef} />
+            ) : null}
         </main>
     );
 });

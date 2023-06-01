@@ -20,7 +20,7 @@ type SortOrder = typeof Sort[typeof keyof Sort]
 export interface ThemeContextProps {
     theme?: Theme;
     // setTheme?: (theme: Theme) => void
-    setTheme?: Dispatch<SetStateAction<Theme>>
+    setTheme?: Dispatch<SetStateAction<Theme>>;
 }
 
 export const ThemeContext = createContext<ThemeContextProps>({});

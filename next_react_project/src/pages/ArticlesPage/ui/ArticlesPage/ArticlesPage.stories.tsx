@@ -4,11 +4,14 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import ArticlesPage from './ArticlesPage';
 
 import {
-    Article, ArticleBlockType, ArticleType, ArticleView,
+    Article,
+    ArticleBlockType,
+    ArticleType,
+    ArticleView,
 } from '@/entities/Article';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 
-const article1:Article = {
+const article1: Article = {
     id: '1',
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',
@@ -82,7 +85,7 @@ const article1:Article = {
     ],
 };
 
-const article2:Article = {
+const article2: Article = {
     id: '2',
     title: 'Python news',
     subtitle: 'Что нового в JS за 2022 год?',
@@ -116,40 +119,46 @@ export default {
     },
 } as ComponentMeta<typeof ArticlesPage>;
 
-const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage {...args} />;
+const Template: ComponentStory<typeof ArticlesPage> = (args) => (
+    <ArticlesPage {...args} />
+);
 
 export const Big = Template.bind({});
 Big.args = {};
 
-Big.decorators = [StoreDecorator({
-    articlesPage: {
-        isLoading: false,
-        view: ArticleView.BIG,
-        page: 6,
-        hasMore: false,
-        limit: 4,
-        ids: ['1', '2'],
-        entities: {
-            1: article1,
-            2: article2,
+Big.decorators = [
+    StoreDecorator({
+        articlesPage: {
+            isLoading: false,
+            view: ArticleView.BIG,
+            page: 6,
+            hasMore: false,
+            limit: 4,
+            ids: ['1', '2'],
+            entities: {
+                1: article1,
+                2: article2,
+            },
         },
-    },
-})];
+    }),
+];
 
 export const Small = Template.bind({});
 Small.args = {};
 
-Small.decorators = [StoreDecorator({
-    articlesPage: {
-        isLoading: false,
-        view: ArticleView.SMALL,
-        page: 6,
-        hasMore: false,
-        limit: 4,
-        ids: ['1', '2'],
-        entities: {
-            1: article1,
-            2: article2,
+Small.decorators = [
+    StoreDecorator({
+        articlesPage: {
+            isLoading: false,
+            view: ArticleView.SMALL,
+            page: 6,
+            hasMore: false,
+            limit: 4,
+            ids: ['1', '2'],
+            entities: {
+                1: article1,
+                2: article2,
+            },
         },
-    },
-})];
+    }),
+];

@@ -1,5 +1,10 @@
-export function lazyLoadingTimeout<T>(dynamicImport: Promise<T>, countMSec: number): Promise<T> {
+export function lazyLoadingTimeout<T>(
+    dynamicImport: Promise<T>,
+    countMSec: number,
+): Promise<T> {
     return new Promise((resolve) => {
-        setTimeout(() => { resolve(dynamicImport); }, countMSec);
+        setTimeout(() => {
+            resolve(dynamicImport);
+        }, countMSec);
     });
 }

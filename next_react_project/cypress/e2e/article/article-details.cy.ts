@@ -37,7 +37,9 @@ describe('A user enters article details page', () => {
     });
 
     it('should be able to add rating using stubs(fixtures)', () => {
-        cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' });
+        cy.intercept('GET', '**/articles/*', {
+            fixture: 'article-details.json',
+        });
         cy.getByTestId('ArticleDetails.Info');
         cy.getByTestId('RatingCard').scrollIntoView();
         cy.setRate(4, 'some comment');

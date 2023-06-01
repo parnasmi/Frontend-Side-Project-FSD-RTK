@@ -18,11 +18,11 @@ import { VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 
 interface ArticleDetailsCommentsProps {
-   className?: string;
-   id:string;
+    className?: string;
+    id: string;
 }
 
-export const ArticleDetailsComments = (props:ArticleDetailsCommentsProps) => {
+export const ArticleDetailsComments = (props: ArticleDetailsCommentsProps) => {
     const { className, id } = props;
     const { t } = useTranslation();
 
@@ -30,9 +30,12 @@ export const ArticleDetailsComments = (props:ArticleDetailsCommentsProps) => {
     const comments = useSelector(getArticleComments.selectAll);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 
-    const onSendComment = useCallback((text: string) => {
-        dispatch(addCommentForArticle(text));
-    }, [dispatch]);
+    const onSendComment = useCallback(
+        (text: string) => {
+            dispatch(addCommentForArticle(text));
+        },
+        [dispatch],
+    );
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
@@ -44,10 +47,7 @@ export const ArticleDetailsComments = (props:ArticleDetailsCommentsProps) => {
             <Suspense fallback={<Loader />}>
                 <AddCommentForm onSendComment={onSendComment} />
             </Suspense>
-            <CommentList
-                isLoading={commentsIsLoading}
-                comments={comments}
-            />
+            <CommentList isLoading={commentsIsLoading} comments={comments} />
         </VStack>
     );
 };

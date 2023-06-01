@@ -26,9 +26,9 @@ import {
 export type AppRoutesProps = RouteProps & {
     authOnly?: boolean;
     roles?: UserRole[];
-}
+};
 
-export const routes:Record<AppRoutes, AppRoutesProps> = {
+export const routes: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
         path: getRouteMain(),
         element: <MainPage />,

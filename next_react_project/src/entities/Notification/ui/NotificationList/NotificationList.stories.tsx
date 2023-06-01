@@ -22,7 +22,9 @@ const notificationEntityItem: Notification = {
     href: 'http://yandex.ru',
 };
 
-const Template: ComponentStory<typeof NotificationList> = (args) => <NotificationList {...args} />;
+const Template: ComponentStory<typeof NotificationList> = (args) => (
+    <NotificationList {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};

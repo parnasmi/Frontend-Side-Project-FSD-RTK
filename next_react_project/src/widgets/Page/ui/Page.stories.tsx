@@ -16,14 +16,14 @@ export default {
 const Template: ComponentStory<typeof Page> = (args) => <Page {...args} />;
 
 export const Normal = Template.bind({});
-Normal.args = {
+Normal.args = {};
 
-};
-
-Normal.decorators = [StoreDecorator({
-    ui: {
-        scroll: {
-            '/articles': 1006,
+Normal.decorators = [
+    StoreDecorator({
+        ui: {
+            scroll: {
+                '/articles': 1006,
+            },
         },
-    },
-})];
+    }),
+];

@@ -7,21 +7,24 @@ import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList'
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 
 import { classNames } from '@/shared/libs';
-import { DynamicModuleLoader, ReducersList } from '@/shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch';
 import { Page } from '@/widgets/Page';
 
 import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
-  className?: string;
+    className?: string;
 }
 
 const reducers: ReducersList = {
     articlesPage: articlesPageReducer,
 };
 
-const ArticlesPage = (props:ArticlesPageProps) => {
+const ArticlesPage = (props: ArticlesPageProps) => {
     const { className } = props;
     const dispatch = useAppDispatch();
 

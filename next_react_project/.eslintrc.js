@@ -11,6 +11,7 @@ module.exports = {
         'plugin:i18next/recommended',
         'plugin:storybook/recommended',
         'plugin:cypress/recommended',
+        'prettier'
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -31,9 +32,6 @@ module.exports = {
         'cypress',
     ],
     rules: {
-        'react/jsx-indent': [2, 4],
-        'react/jsx-indent-props': [2, 4],
-        indent: [2, 4],
         'react/jsx-filename-extension': [2, {
             extensions: ['.js', '.jsx', '.tsx'],
         }],

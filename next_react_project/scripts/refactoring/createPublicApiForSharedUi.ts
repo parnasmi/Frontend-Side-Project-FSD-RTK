@@ -10,16 +10,27 @@ const files = project.getSourceFiles();
 const indexFilename = 'index.ts';
 const layer = process.argv[2] || 'shared';
 const slice = 'ui';
-const dest = project.getDirectory(path.resolve(__dirname, '..', '..', 'src', layer, slice));
+const dest = project.getDirectory(
+    path.resolve(__dirname, '..', '..', 'src', layer, slice),
+);
 const directories = dest?.getDirectories();
 
 function isAbsolute(value: string) {
-    const layers = ['app', 'shared', 'entities', 'features', 'widgets', 'pages'];
+    const layers = [
+        'app',
+        'shared',
+        'entities',
+        'features',
+        'widgets',
+        'pages',
+    ];
     return layers.some((layer) => value.startsWith(layer));
 }
 directories?.forEach((directory) => {
     const folderNamePath = directory.getPath();
-    const isIndexFileExist = directory.getSourceFile(`${folderNamePath}/${indexFilename}`);
+    const isIndexFileExist = directory.getSourceFile(
+        `${folderNamePath}/${indexFilename}`,
+    );
 
     if (!isIndexFileExist) {
         const filesInFolder = directory.getSourceFiles([
@@ -47,7 +58,9 @@ directories?.forEach((directory) => {
         );
 
         // eslint-disable-next-line no-console
-        file.save().then(() => console.log(`${folderNamePath} --> index.ts created!`));
+        file.save().then(() =>
+            console.log(`${folderNamePath} --> index.ts created!`),
+        );
     }
 });
 

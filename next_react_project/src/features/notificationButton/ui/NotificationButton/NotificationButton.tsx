@@ -37,24 +37,24 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
 
     return (
         <>
-            {
-                isTouchDevice ? (
-                    <>
-                        {trigger}
-                        <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-                            <NotificationList />
-                        </Drawer>
-                    </>
-                ) : (
-                    <Popover
-                        className={classNames(cls.NotificationButton, {}, [className])}
-                        direction="bottom left"
-                        trigger={trigger}
-                    >
-                        <NotificationList className={cls.notifications} />
-                    </Popover>
-                )
-            }
+            {isTouchDevice ? (
+                <>
+                    {trigger}
+                    <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+                        <NotificationList />
+                    </Drawer>
+                </>
+            ) : (
+                <Popover
+                    className={classNames(cls.NotificationButton, {}, [
+                        className,
+                    ])}
+                    direction="bottom left"
+                    trigger={trigger}
+                >
+                    <NotificationList className={cls.notifications} />
+                </Popover>
+            )}
             {/* <BrowserView>
                 <Popover
                     className={classNames(cls.NotificationButton, {}, [className])}

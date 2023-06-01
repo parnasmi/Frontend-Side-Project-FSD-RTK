@@ -1,9 +1,18 @@
 {
   "2Введите текст комментария": "2Введите текст комментария",
+  "Loading": {
+    "": {
+      "": {
+        "": ""
+      }
+    }
+  },
   "add5": "add5",
   "appLogoText": "Ulbi TV App",
   "decrement": "decrement",
   "increment": "increment",
+  "loading": "loading",
+  "loadingSpinner": "Loading...",
   "throw error": "throw error",
   "Админ панель": "Админ панель",
   "Админка": "Админка",

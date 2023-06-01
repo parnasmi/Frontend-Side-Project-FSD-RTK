@@ -12,20 +12,24 @@ export default {
     },
 };
 
-const Template: StoryFn<typeof ProfileRating> = (args) => <ProfileRating {...args} />;
+const Template: StoryFn<typeof ProfileRating> = (args) => (
+    <ProfileRating {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {
     profileId: '1',
 };
 
-Normal.decorators = [StoreDecorator({
-    user: {
-        authData: {
-            id: '1',
+Normal.decorators = [
+    StoreDecorator({
+        user: {
+            authData: {
+                id: '1',
+            },
         },
-    },
-})];
+    }),
+];
 
 Normal.parameters = {
     mockData: [
@@ -47,13 +51,15 @@ WithoutRating.args = {
     profileId: '1',
 };
 
-WithoutRating.decorators = [StoreDecorator({
-    user: {
-        authData: {
-            id: '1',
+WithoutRating.decorators = [
+    StoreDecorator({
+        user: {
+            authData: {
+                id: '1',
+            },
         },
-    },
-})];
+    }),
+];
 
 WithoutRating.parameters = {
     mockData: [
