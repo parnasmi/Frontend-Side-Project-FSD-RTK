@@ -10,6 +10,7 @@ describe('A user enters article details page', () => {
     });
 
     afterEach(() => {
+        cy.log('currentArticleId', currentArticleId);
         cy.removeArticle(currentArticleId);
     });
 

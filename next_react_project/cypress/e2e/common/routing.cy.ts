@@ -1,4 +1,4 @@
-import { selectByTestId } from 'cypress/helpers/selectByTestId';
+import { selectByTestId } from '../../helpers/selectByTestId';
 
 const host = Cypress.env('host');
 

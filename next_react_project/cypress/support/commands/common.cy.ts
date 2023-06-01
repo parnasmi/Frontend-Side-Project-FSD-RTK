@@ -1,7 +1,6 @@
-import { selectByTestId } from 'cypress/helpers/selectByTestId';
-
 import { User } from '../../../src/entities/User';
 import { USER_LOCALSTORAGE_KEY } from '../../../src/shared/const/localstorage';
+import { selectByTestId } from '../../helpers/selectByTestId';
 
 const apiHost = Cypress.env('api_server');
 
