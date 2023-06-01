@@ -1,5 +1,8 @@
+import * as articleCommands from './commands/article';
+import * as commentCommands from './commands/comments';
 import * as commonCommands from './commands/common.cy';
-import * as profileCoomands from './commands/profile.cy';
+import * as profileCommands from './commands/profile.cy';
+import * as ratingCommands from './commands/rating';
 /// <reference types="cypress" />
 // ***********************************************
 // This example commands.ts shows you how to
@@ -13,7 +16,10 @@ import * as profileCoomands from './commands/profile.cy';
 
 // -- This is a parent command --
 Cypress.Commands.addAll(commonCommands);
-Cypress.Commands.addAll(profileCoomands);
+Cypress.Commands.addAll(profileCommands);
+Cypress.Commands.addAll(articleCommands);
+Cypress.Commands.addAll(commentCommands);
+Cypress.Commands.addAll(ratingCommands);
 
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
