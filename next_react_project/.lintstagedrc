@@ -1,4 +1,4 @@
 {
     "**/*.{ts,tsx}": ["prettier --list-different", "eslint"],
-    "**/*.{css,scss}": "stylelint --fix"
+    "**/*.{css,scss}": "stylelint"
 }
