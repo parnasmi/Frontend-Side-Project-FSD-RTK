@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/parnasmi/ulbitv-course#readme",
   "devDependencies": {
-    "eslint-plugin-fsd-import-linter": "^0.0.3",
-    "husky": "^8.0.0"
+    "husky": "^8.0.3"
   }
 }

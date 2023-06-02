@@ -48,7 +48,7 @@ export const Text = memo((props: TextProps) => {
         theme = TextTheme.PRIMARY,
         align = TextAlign.LEFT,
         size = TextSize.M,
-        'data-testid': dataTestId = 'Text',
+        'data-testid': dataTestId = 'Text0',
     } = props;
 
     const HeaderTag = mapSizeToHeaderTag[size];
