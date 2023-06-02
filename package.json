@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/parnasmi/ulbitv-course#readme",
   "devDependencies": {
-    "husky": "^8.0.3"
+    "husky": "^7.0.0",
+    "lint-staged": "^13.2.2"
   }
 }
