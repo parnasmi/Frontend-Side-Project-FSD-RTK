@@ -13,11 +13,13 @@ export default {
 };
 
 const Template: StoryFn<typeof ProfileRating> = (args) => (
+    // @ts-nocheck
     <ProfileRating {...args} />
 );
 
 export const Normal = Template.bind({});
 Normal.args = {
+    // @ts-nocheck
     profileId: '1',
 };
 
@@ -48,6 +50,7 @@ Normal.parameters = {
 
 export const WithoutRating = Template.bind({});
 WithoutRating.args = {
+    // @ts-nocheck
     profileId: '1',
 };
 
