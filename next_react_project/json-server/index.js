@@ -1,6 +1,8 @@
 const fs = require('fs');
-const jsonServer = require('json-server');
+const https = require('https');
 const path = require('path');
+
+const jsonServer = require('json-server');
 
 const server = jsonServer.create();
 
@@ -8,6 +10,15 @@ const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
 
 server.use(jsonServer.defaults({}));
 server.use(jsonServer.bodyParser);
+
+const options = {
+    key: fs.readFileSync(
+        '/etc/letsencrypt/live/side-frontend.online-0001/privkey.pem',
+    ),
+    cert: fs.readFileSync(
+        '/etc/letsencrypt/live/side-frontend.online-0001/fullchain.pem',
+    ),
+};
 
 // Нужно для небольшой задержки, чтобы запрос проходил не мгновенно, имитация реального апи
 server.use(async (req, res, next) => {
@@ -21,7 +32,9 @@ server.use(async (req, res, next) => {
 server.post('/login', (req, res) => {
     try {
         const { username, password } = req.body;
-        const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
+        const db = JSON.parse(
+            fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'),
+        );
         const { users = [] } = db;
 
         const userFromBd = users.find(
@@ -52,6 +65,8 @@ server.use((req, res, next) => {
 server.use(router);
 
 // запуск сервера
-server.listen(8000, () => {
-    console.log('server is running on 8000 port');
+const PORT = 8443;
+const httpsServer = https.createServer(options, server);
+httpsServer.listen(PORT, () => {
+    console.log(`server is running on ${PORT} port`);
 });
