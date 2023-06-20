@@ -5,6 +5,7 @@ export default function MainPage() {
 
     return (
         <div data-testid="MainPage">
+            <div>123</div>
             {t('Главная страница', { ns: 'main' })}
         </div>
     );

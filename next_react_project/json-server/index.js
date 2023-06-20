@@ -1,4 +1,5 @@
 const fs = require('fs');
+const http = require('http');
 const https = require('https');
 const path = require('path');
 
@@ -13,10 +14,12 @@ server.use(jsonServer.bodyParser);
 
 const options = {
     key: fs.readFileSync(
-        '/etc/letsencrypt/live/side-frontend.online-0001/privkey.pem',
+        '/etc/letsencrypt/live/side-frontend.online-0001/privkey.pem' ??
+            path.resolve(__dirname, 'key.pem'),
     ),
     cert: fs.readFileSync(
-        '/etc/letsencrypt/live/side-frontend.online-0001/fullchain.pem',
+        '/etc/letsencrypt/live/side-frontend.online-0001/fullchain.pem' ??
+            path.resolve(__dirname, 'cert.pem'),
     ),
 };
 
@@ -66,7 +69,13 @@ server.use(router);
 
 // запуск сервера
 const PORT = 8443;
+const HTTP_PORT = 8000;
 const httpsServer = https.createServer(options, server);
+const httpServer = http.createServer(server);
 httpsServer.listen(PORT, () => {
     console.log(`server is running on ${PORT} port`);
+});
+
+httpServer.listen(HTTP_PORT, () => {
+    console.log(`server is running on ${HTTP_PORT} port`);
 });
