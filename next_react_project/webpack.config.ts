@@ -5,17 +5,8 @@ import { Configuration } from 'webpack';
 import { BuildPaths, buildWebpackConfigs, BuildEnv } from './config/build';
 import { BuildMode } from './config/build/types/config';
 
-function getApiUrl(mode: BuildMode, apiUrl?: string) {
-    if (apiUrl) {
-        return apiUrl;
-    }
-
-    if (mode === 'production') {
-        return '/api';
-    }
-
-    return 'http://localhost:8000';
-}
+const envPath = `.env.${process.env.NODE_ENV}`;
+require('dotenv').config({ path: envPath });
 
 export default (env: BuildEnv) => {
     const paths: BuildPaths = {
@@ -27,11 +18,11 @@ export default (env: BuildEnv) => {
         buildLocales: resolve(__dirname, 'build', 'locales'),
     };
 
-    const mode = env?.mode || 'development';
+    const mode = (process.env.NODE_ENV as BuildMode) || 'development';
 
     const isDev = mode === 'development';
     const PORT = env?.port || 3003;
-    const apiUrl = getApiUrl(mode, env?.apiUrl);
+    const apiUrl = process.env.API_URL || 'http://localhost:8001';
 
     const config: Configuration = buildWebpackConfigs({
         mode,

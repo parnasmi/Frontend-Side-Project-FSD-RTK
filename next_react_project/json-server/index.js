@@ -12,16 +12,20 @@ const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
 server.use(jsonServer.defaults({}));
 server.use(jsonServer.bodyParser);
 
-const options = {
-    key: fs.readFileSync(
-        '/etc/letsencrypt/live/side-frontend.online-0001/privkey.pem' ??
-            path.resolve(__dirname, 'key.pem'),
-    ),
-    cert: fs.readFileSync(
-        '/etc/letsencrypt/live/side-frontend.online-0001/fullchain.pem' ??
-            path.resolve(__dirname, 'cert.pem'),
-    ),
-};
+const options =
+    process.env.NODE_ENV === 'development'
+        ? {
+              key: fs.readFileSync(path.resolve(__dirname, 'key.pem')),
+              cert: fs.readFileSync(path.resolve(__dirname, 'cert.pem')),
+          }
+        : {
+              key: fs.readFileSync(
+                  '/etc/letsencrypt/live/side-frontend.online-0001/privkey.pem',
+              ),
+              cert: fs.readFileSync(
+                  '/etc/letsencrypt/live/side-frontend.online-0001/fullchain.pem',
+              ),
+          };
 
 // Нужно для небольшой задержки, чтобы запрос проходил не мгновенно, имитация реального апи
 server.use(async (req, res, next) => {
