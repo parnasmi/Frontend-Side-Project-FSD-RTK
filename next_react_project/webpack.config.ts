@@ -6,6 +6,10 @@ import { BuildPaths, buildWebpackConfigs, BuildEnv } from './config/build';
 import { BuildMode } from './config/build/types/config';
 
 const envPath = `.env.${process.env.NODE_ENV}`;
+console.log('envPath', envPath);
+console.log('process.env', process.env);
+console.log('process.env.NODE_ENV', process.env.NODE_ENV);
+
 require('dotenv').config({ path: envPath });
 
 export default (env: BuildEnv) => {
@@ -22,6 +26,8 @@ export default (env: BuildEnv) => {
 
     const isDev = mode === 'development';
     const PORT = env?.port || 3003;
+
+    console.log('process.env in confg', process.env);
     const apiUrl = process.env.API_URL || 'http://localhost:8001';
 
     const config: Configuration = buildWebpackConfigs({
