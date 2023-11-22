@@ -32,7 +32,8 @@
         "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
         "storybook": "storybook dev -p 6006 --config-dir ./config/storybook",
         "storybook:build": "storybook build --config-dir ./config/storybook",
-        "generate:slice": "node ./scripts/createSlice/index.js"
+        "generate:slice": "node ./scripts/createSlice/index.js",
+        "deploy": "cd build && rsync --archive --compress --delete . root@185.220.204.157:/var/www/side-project/html/"
     },
     "keywords": [],
     "author": "",

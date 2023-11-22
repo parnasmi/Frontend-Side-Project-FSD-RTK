@@ -1,0 +1,11 @@
+name: CI notify
+
+# Only trigger, when the build workflow succeeded
+on:
+  workflow_run:
+    workflows: ["linting, testing"]
+    types:
+      - completed
+jobs:
+  typescript:
+    runs-on: ubuntu-latest

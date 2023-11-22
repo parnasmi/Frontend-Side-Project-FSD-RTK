@@ -1,4 +1,4 @@
-name: linting, testing, building
+name: linting, testing
 on:
   push:
     branches: [main, 14_module/e2e_tests_prettier]
