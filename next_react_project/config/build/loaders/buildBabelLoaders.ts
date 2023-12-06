@@ -21,7 +21,7 @@ export function buildBabelLoaders({ isTsx, isDev }: BuildBabelLoaderProps) {
                         {
                             locales: ['ru', 'en'],
                             keyAsDefaultValue: true,
-                            outputPath: 'public/locales/{{locale}}/{{ns}}.json',
+                            // outputPath: 'public/locales/{{locale}}/{{ns}}.json',
                         },
                     ],
                     !isDev && [
@@ -31,12 +31,13 @@ export function buildBabelLoaders({ isTsx, isDev }: BuildBabelLoaderProps) {
                         },
                     ],
                     !isDev && '@babel/plugin-transform-runtime',
-                    isTsx && !isDev && [
-                        babelRemovePropsPlugin,
-                        {
-                            props: ['data-testid'],
-                        },
-                    ],
+                    isTsx &&
+                        !isDev && [
+                            babelRemovePropsPlugin,
+                            {
+                                props: ['data-testid'],
+                            },
+                        ],
                     // isDev && require.resolve('react-refresh/babel'),
                 ].filter(Boolean),
             },

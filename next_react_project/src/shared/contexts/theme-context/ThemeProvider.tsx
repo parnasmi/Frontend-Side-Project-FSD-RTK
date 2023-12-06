@@ -22,7 +22,7 @@ function getTheme(theme: ThemeType): Theme | null {
 
 interface ThemeProviderProps {
     children: React.ReactNode;
-    initialTheme?: Theme;
+    initialTheme?: Theme; // is necessary for storybook
 }
 
 const defaultTheme: Theme =
